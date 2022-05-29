@@ -6,7 +6,9 @@
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main(int argc, char *argv[]) {
+	char respostaUserS;
 	setlocale(LC_ALL, "Portuguese");
+	int matrizS[4][4];
 	char posicaoRank1 [NUM_STRINGS][MAX_LENGTH] = {"nome","0"} ;
 	char posicaoRank2 [NUM_STRINGS][MAX_LENGTH] = {"nome","0"};
 	char posicaoRank3 [NUM_STRINGS][MAX_LENGTH] = {"nome","0"} ;
@@ -17,15 +19,17 @@ int main(int argc, char *argv[]) {
 	char nomeUsuario[30] = "";
 	char emailUsuario[30] = "";
 	char senhaUsuario[30] = "";
-	char player1 [NUM_STRINGS][MAX_LENGTH] = {"luan","luanpontescabral@gmail.com","jujuba"};
-	char player2 [NUM_STRINGS][MAX_LENGTH] = {"nome","email","senha"};
-	char player3 [NUM_STRINGS][MAX_LENGTH] = {"nome","email","senha"};
-	char player4 [NUM_STRINGS][MAX_LENGTH] = {"nome","email","senha"};
-	char playerAtual [NUM_STRINGS][MAX_LENGTH] = {"nome","email","senha"};
+	char codigoUsuario[30] = "";
+	char player1 [NUM_STRINGS][MAX_LENGTH] = {"nome","email","senha","codigo"};
+	char player2 [NUM_STRINGS][MAX_LENGTH] = {"nome","email","senha","codigo"};
+	char player3 [NUM_STRINGS][MAX_LENGTH] = {"nome","email","senha","codigo"};
+	char player4 [NUM_STRINGS][MAX_LENGTH] = {"nome","email","senha","codigo"};
+	char playerAtual [NUM_STRINGS][MAX_LENGTH] = {"nome","email","senha","codigo"};
 	int player1Score = 0 ; 
 	int player2Score = 0 ; 
 	int player3Score = 0 ; 
 	int player4Score = 0 ; 
+	int carregarJogo ; 
 
 	
 	void textoInicial(){
@@ -34,7 +38,8 @@ int main(int argc, char *argv[]) {
 		void textoJogo()
 	{
   
- 	
+ 	int coluna;
+	int linha;
  	pontuacao = 0 ; 
  	score = 0; 
 	int mostrouGameOver = 0 ;
@@ -162,12 +167,23 @@ int main(int argc, char *argv[]) {
 	}}
 	
 	
-	int matriz[4][4] = {{10,16,17,10},
-						{11,15,10,12},
-						{13,14,15,11},
-						{2,13,13,0}};
-	int coluna;
-	int linha;
+	int matriz[4][4] = {0} ;
+	void carregaJogo(){
+		for(linha = 0; linha<4;linha++){
+			for(coluna = 0 ; coluna<4; coluna++){
+				matriz[linha][coluna] = matrizS[linha][coluna];
+			}
+		}
+	}
+		
+	
+	
+		
+	if(carregarJogo == 1){
+		carregaJogo();
+	}
+						
+	
 	int contador;
 	int respostaUser;
 	void mostraMatriz(){
@@ -289,7 +305,13 @@ int main(int argc, char *argv[]) {
 	
 	}
 }
-	
+	void salvaJogo(){
+		for(linha = 0; linha<4;linha++){
+			for(coluna = 0 ; coluna<4; coluna++){
+				matrizS[linha][coluna] = matriz[linha][coluna];
+			}
+		}
+	}
 	void movCima(){ 
 		if(matriz[2][0] == 0 || matriz[2][0] == matriz[3][0]   ){
 			if(matriz[2][0] == matriz[3][0] && matriz[2][0] != 0 && matriz[3][0] != 0  && soma2_0 != 1 && soma3_0 != 1 ){
@@ -1201,7 +1223,7 @@ int main(int argc, char *argv[]) {
 			break;
 		case 27:
 			
-			
+			    salvaJogo();
 				system("cls");
 				textoMenu();
 				mostrouGameOver = 1 ;
@@ -1252,9 +1274,11 @@ int main(int argc, char *argv[]) {
 	switch(escolhaUser)
 	{
 		case 1 :
+			carregarJogo = 0 ;
 			textoJogo(); 
 			break;
 		case 2 :
+			carregarJogo = 1 ; 
 			textoJogo();
 			break; 	
 		case 3 :
@@ -1348,14 +1372,15 @@ int main(int argc, char *argv[]) {
 	printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
 	printf("Opcao escolhida: Login !                                 \n");
 	void fazerLogin(){
-		
-		printf("Digite o numero do cadastro para selecionar:\n");
-		printf("=---=-=-==--=-=-==--=-=-=-=-=-=\n");
-		printf("Player1:%s\n",player1[0]);
-		printf("Player2:%s\n",player2[0]);
-		printf("Player3:%s\n",player3[0]);
-		printf("Player4:%s\n",player4[0]);
-		printf("=---=-=-==--=-=-==--=-=-=-=-=-=\n");
+		printf("=---=-=-==--=-=-==--=-=-=-=-=-==---=-=-==--=-=-==--=-=-=-=-=-=\n");
+		printf("|      Digite o numero do cadastro para selecionar:           |\n");
+		printf("=---=-=-==--=-=-==--=-=-=-=-=-==---=-=-==--=-=-==--=-=-=-=-=-=\n");
+		printf("|                   Player1:%s                                |\n",player1[0]);
+		printf("|                   Player2:%s                                |\n",player2[0]);
+		printf("|                   Player3:%s                                |\n",player3[0]);
+		printf("|                   Player4:%s                                |\n",player4[0]);
+		printf("|                   0 -Sair                                   |\n");
+		printf("=---=-=-==--=-=-==--=-=-=-=-=-==---=-=-==--=-=-==--=-=-=-=-=-==\n");
 		scanf("%i", & escolhaUser);
 		if(escolhaUser == 1){
 			system("cls");
@@ -1451,6 +1476,9 @@ int main(int argc, char *argv[]) {
 			fazerLogin();
 		}
 		}
+		else if (escolhaUser == 0 ){
+			textoInicial();
+		}
 	}
 	 fazerLogin();
 }
@@ -1471,48 +1499,62 @@ int main(int argc, char *argv[]) {
 	printf("                                              ||||||                            \n");
 	printf("                                                                                \n");
 	printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
-	printf("Opcao escolhida: Cadastro!                                 \n");
+	printf("                       Opcao escolhida: Cadastro!                                 \n");
+	printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
 	void cadastraUsuario(){
 	char vazio[5] = "nome";
-	printf("Digite o seu nome de usuario: ");
+	
+	printf("                       Digite o seu nome de usuario: ");
 		if(strcmp(player1[0],vazio) == 0 ){
 			scanf("%s",&nomeUsuario);
 			strcpy(player1[0],nomeUsuario);
-			printf("Digite o seu email: ");
+			printf("                       Digite o seu email: ");
 			scanf("%s", & emailUsuario);
 			strcpy(player1[1],emailUsuario);
-			printf("Digite a sua senha: ");
+			printf("                       Digite a sua senha: ");
 			scanf("%s", & senhaUsuario);
+			printf("                       Digite a sua cor favorita: ");
+			scanf("%s", & codigoUsuario);
+			strcpy(player1[3],codigoUsuario);
 			strcpy(player1[2],senhaUsuario);
 			strcpy(playerAtual[0],player1[0]);
 		}else if(strcmp(player2[0],vazio) == 0 ){
 			scanf("%s",&nomeUsuario);
 			strcpy(player2[0],nomeUsuario);
-			printf("Digite o seu email: ");
+			printf("                       Digite o seu email: ");
 			scanf("%s", & emailUsuario);
 			strcpy(player2[1],emailUsuario);
-			printf("Digite a sua senha: ");
+			printf("                       Digite a sua senha: ");
 			scanf("%s", & senhaUsuario);
+			printf("                       Digite a sua cor favorita: ");
+			scanf("%s", & codigoUsuario);
+			strcpy(player2[3],codigoUsuario);
 			strcpy(player2[2],senhaUsuario);
 			strcpy(playerAtual[0],player2[0]);
 		}else if(strcmp(player3[0],vazio) == 0 ){
 			scanf("%s",&nomeUsuario);
 			strcpy(player3[0],nomeUsuario);
-			printf("Digite o seu email: ");
+			printf("                       Digite o seu email: ");
 			scanf("%s", & emailUsuario);
 			strcpy(player3[1],emailUsuario);
-			printf("Digite a sua senha: ");
+			printf("                       Digite a sua senha: ");
 			scanf("%s", & senhaUsuario);
+			printf("                       Digite a sua cor favorita: ");
+			scanf("%s", & codigoUsuario);
+			strcpy(player3[3],codigoUsuario);
 			strcpy(player3[2],senhaUsuario);
 			strcpy(playerAtual[0],player3[0]);
 		}else if(strcmp(player4[0],vazio) == 0 ){
 			scanf("%s",&nomeUsuario);
 			strcpy(player4[0],nomeUsuario);
-			printf("Digite o seu email: ");
+			printf("                       Digite o seu email: ");
 			scanf("%s", & emailUsuario);
 			strcpy(player4[1],emailUsuario);
-			printf("Digite a sua senha: ");
+			printf("                       Digite a sua senha: ");
 			scanf("%s", & senhaUsuario);
+			printf("                       Digite a sua cor favorita: ");
+			scanf("%s", & codigoUsuario);
+			strcpy(player4[3],codigoUsuario);
 			strcpy(player4[2],senhaUsuario);
 			strcpy(playerAtual[0],player4[0]);
 		}
@@ -1551,16 +1593,71 @@ int main(int argc, char *argv[]) {
 	printf("Se voce for novo no jogo, por favor realize o cadastro teclando  1 e pressionando enter \nse voce ja possui uma conta, tecle 2 e pressionando enter                                  \n");
 	printf("1 - cadastrar-se                                                                  \n");
 	printf("2 - entrar                                                                       \n");
-	printf("                                                                                \n");
-	scanf("%d",& escolhaUser );
-	if (escolhaUser == 1 ){
+	printf("3 - recuperar senha                                                                                 \n");
+	scanf("%c",& respostaUserS );
+	
+	
+	if (respostaUserS == '1' ){
 		textoCadastro();
 		textoMenu();
 	
-	}else if (escolhaUser == 2)
+	}else if (respostaUserS == '2' )
 	{	textoLogin();
 	
 		textoMenu();
+		
+	}else if(respostaUserS == '3'){
+		char emailRecup[50],perguntaRecup[50];
+		system("cls");
+		printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
+		printf("|                   Opção selecionada: recuperação de senha                    |\n");
+		printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
+		printf("|                   para voltar ao menu digite 0\n\n");
+		printf("|                   Digite o e-mail cadastrado:");
+		scanf("%s", & emailRecup);
+		if(strcmp(emailRecup, "0") == 0){
+			textoInicial();
+		}
+		printf("|                   Digite a sua cor favorita :");
+		scanf("%s", & perguntaRecup);
+		
+		
+		if(strcmp(player1[3], perguntaRecup) == 0 &&  strcmp(player1[1], emailRecup) == 0  ){
+			printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
+			printf("                    Sua senha é :%s\n\n",player1[2]);
+				printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
+			system("pause");
+			textoInicial();
+		}else if(strcmp(player2[3], perguntaRecup) == 0 &&  strcmp(player2[1], emailRecup) == 0  ){
+			printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
+			printf("                    Sua senha é :%s\n\n",player2[2]);
+			printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
+			system("pause");
+			textoInicial();
+		}else if(strcmp(player3[3], perguntaRecup) == 0 &&  strcmp(player3[1], emailRecup) == 0  ){
+				printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
+			printf("                    Sua senha é :%s\n\n",player3[2]) ;
+				printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
+			system("pause");
+			textoInicial();
+		}else if(strcmp(player4[3], perguntaRecup) == 0 &&  strcmp(player4[1], emailRecup) == 0  ){
+			printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
+			printf("                    Sua senha é :%s\n\n",player4[2]);
+			printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
+			system("pause");
+			textoInicial();
+		}else{
+			printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
+			printf("|                    Email ou codigo invalidos!|\n\n");
+			printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
+			system("pause");
+			textoInicial();
+		}
+		
+		
+	}
+	else{
+		textoInicial();
 		
 	}
 
