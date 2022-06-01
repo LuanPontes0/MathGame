@@ -8,7 +8,7 @@
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main(int argc, char *argv[]) {
-	system("color 71");
+	
 	char respostaUserS;
 	setlocale(LC_ALL, "Portuguese");
 	int matrizS1[4][4];
@@ -349,6 +349,135 @@ int main(int argc, char *argv[]) {
 		}
 	}}
 	void movCima(){ 
+		if(matriz[0][0] == 0  || matriz[0][0] == matriz[1][0]    ){
+			if(matriz[0][0] == matriz[1][0] && matriz[0][0] != 0 && matriz[1][0] != 0  && soma0_0 != 1 && soma1_0 !=1 ){
+				soma0_0 = 1;
+				soma1_0 = 0 ;
+				matriz[0][0] += matriz[1][0];
+				matriz[1][0] = 0;
+			}else if(  matriz[0][0] == 0 && matriz[1][0] != 0  ) {
+				
+			soma0_0 = soma1_0;
+			soma1_0 = 0 ;
+			matriz[0][0] += matriz[1][0];
+			matriz[1][0] = 0;
+		}	
+		}
+		if(matriz[0][1] == 0 || matriz[0][1] == matriz[1][1] ){
+			if(matriz[0][1] == matriz[1][1] && matriz[0][1] != 0 && matriz[1][1] != 0 && soma0_1 != 1 && soma1_1 !=1  ){
+				soma0_1 = 1;
+				soma1_1 = 0 ;
+				matriz[0][1] += matriz[1][1];
+				matriz[1][1] = 0;
+				
+			}else if(  matriz[0][1] == 0 && matriz[1][1] != 0  ) {
+				
+			soma0_1 = soma1_1;
+			soma1_1 = 0 ;
+			matriz[0][1] += matriz[1][1];
+			matriz[1][1] = 0;
+		}	
+		}
+		if(matriz[0][2] == 0 || matriz[0][2] == matriz[1][2]   ){
+			if(matriz[0][2] == matriz[1][2] && matriz[0][2] != 0 && matriz[1][2] != 0 && soma0_2 != 1 && soma1_2 !=1  ){
+				soma0_2 = 1;
+				soma1_2 = 0 ;
+				matriz[0][2] += matriz[1][2];
+				matriz[1][2] = 0;
+
+			}else if(  matriz[0][2] == 0 && matriz[1][2] != 0  ) {
+				
+			soma0_2 = soma1_2;
+			soma1_2 = 0 ;
+			matriz[0][2] += matriz[1][2];
+			matriz[1][2] = 0;
+		}	
+			
+		}
+		if(matriz[0][3] == 0 || matriz[0][3] == matriz[1][3]   ){
+			if(matriz[0][3] == matriz[1][3] && matriz[0][3] != 0 && matriz[1][3] != 0  && soma0_3 != 1 && soma1_3 !=1  ){
+				soma0_3 = 1;
+				soma1_3 = 0 ;
+				matriz[0][3] += matriz[1][3];
+				matriz[1][3] = 0;
+				
+				
+			}else if(  matriz[0][3] == 0 && matriz[1][3] != 0  ) {
+				
+			soma0_3 = soma1_3;
+			soma1_3 = 0 ;
+			matriz[0][3] += matriz[1][3];
+			matriz[1][3] = 0;
+		}	
+			
+		}
+		if(matriz[1][0] == 0 || matriz[1][0] == matriz[2][0]  ){
+			if(matriz[1][0] == matriz[2][0] && matriz[1][0] != 0 && matriz[2][0] != 0 && soma1_0 != 1 & soma2_0 != 1 ){
+				soma1_0 = 1;
+				soma2_0 = 0 ;
+				matriz[1][0] += matriz[2][0];
+				matriz[2][0] = 0;
+				
+				
+			}else if( matriz[1][0] == 0 && matriz[2][0] != 0  ) { 
+			soma1_0 = soma2_0 ;
+			soma2_0 = 0 ;  
+			matriz[1][0] += matriz[2][0];
+			matriz[2][0] = 0;
+		}
+		}
+		if(matriz[1][1] == 0 || matriz[1][1] == matriz[2][1]   ){
+			if(matriz[1][1] == matriz[2][1] && matriz[1][1] != 0 && matriz[2][1] != 0 && soma1_1 != 1 & soma2_1 != 1 ){
+				soma1_1 = 1;
+				soma2_1 = 0 ;
+				matriz[1][1] += matriz[2][1];
+				matriz[2][1] = 0;
+				
+				
+			}else if( matriz[1][1] == 0 && matriz[2][1] != 0  ) { 
+			soma1_1 = soma2_1 ;
+			soma2_1 = 0 ;  
+			matriz[1][1] += matriz[2][1];
+			matriz[2][1] = 0;
+			
+		}
+			
+			}
+		if(matriz[1][2] == 0 || matriz[1][2] == matriz[2][2]    ){
+			if(matriz[1][2] == matriz[2][2] && matriz[1][2] != 0 && matriz[2][2] != 0 && soma1_2 != 1 & soma2_2 != 1 ){
+				soma1_2 = 1;
+				soma2_2 = 0 ;
+				matriz[1][2] += matriz[2][2];
+				matriz[2][2] = 0;
+				
+				
+			}else if( matriz[1][2] == 0 && matriz[2][2] != 0  ) { 
+			soma1_2 = soma2_2 ;
+			soma2_2 = 0 ;  
+			matriz[1][2] += matriz[2][2];
+			matriz[2][2] = 0;
+			
+		}
+			
+			
+			}	
+		if(matriz[1][3] == 0  || matriz[1][3] == matriz[2][3]   ){
+			if(matriz[1][3] == matriz[2][3] && matriz[1][3] != 0 && matriz[2][3] != 0 && soma1_3 != 1 & soma2_3 != 1 ){
+				soma1_3 = 1;
+				soma2_3 = 0 ;
+				matriz[1][3] += matriz[2][3];
+				matriz[2][3] = 0;
+				
+				
+			}else if( matriz[1][3] == 0 && matriz[2][3] != 0  ) { 
+			soma1_3 = soma2_3 ;
+			soma2_3 = 0 ;  
+			matriz[1][3] += matriz[2][3];
+			matriz[2][3] = 0;
+		}
+			
+			
+			}
 		if(matriz[2][0] == 0 || matriz[2][0] == matriz[3][0]   ){
 			if(matriz[2][0] == matriz[3][0] && matriz[2][0] != 0 && matriz[3][0] != 0  && soma2_0 != 1 && soma3_0 != 1 ){
 				soma2_0 = 1 ;
@@ -418,314 +547,25 @@ int main(int argc, char *argv[]) {
 			
 			
 	}
-		if(matriz[1][0] == 0 || matriz[1][0] == matriz[2][0]  ){
-			if(matriz[1][0] == matriz[2][0] && matriz[1][0] != 0 && matriz[2][0] != 0 && soma1_0 != 1 & soma2_0 != 1 ){
-				soma1_0 = 1;
-				soma2_0 = 0 ;
-				matriz[1][0] += matriz[2][0];
-				matriz[2][0] = 0;
-				
-				
-			}else if( matriz[1][0] == 0 && matriz[2][0] != 0  ) { 
-			soma1_0 = soma2_0 ;
-			soma2_0 = 0 ;  
-			matriz[1][0] += matriz[2][0];
-			matriz[2][0] = 0;
-		}
-		}
-		if(matriz[1][1] == 0 || matriz[1][1] == matriz[2][1]   ){
-			if(matriz[1][1] == matriz[2][1] && matriz[1][1] != 0 && matriz[2][1] != 0 && soma1_1 != 1 & soma2_1 != 1 ){
-				soma1_1 = 1;
-				soma2_1 = 0 ;
-				matriz[1][1] += matriz[2][1];
-				matriz[2][1] = 0;
-				
-				
-			}else if( matriz[1][1] == 0 && matriz[2][1] != 0  ) { 
-			soma1_1 = soma2_1 ;
-			soma2_1 = 0 ;  
-			matriz[1][1] += matriz[2][1];
-			matriz[2][1] = 0;
 			
-		}
-			
-			}
-		if(matriz[1][2] == 0 || matriz[1][2] == matriz[2][2]    ){
-			if(matriz[1][2] == matriz[2][2] && matriz[1][2] != 0 && matriz[2][2] != 0 && soma1_2 != 1 & soma2_2 != 1 ){
-				soma1_2 = 1;
-				soma2_2 = 0 ;
-				matriz[1][2] += matriz[2][2];
-				matriz[2][2] = 0;
-				
-				
-			}else if( matriz[1][2] == 0 && matriz[2][2] != 0  ) { 
-			soma1_2 = soma2_2 ;
-			soma2_2 = 0 ;  
-			matriz[1][2] += matriz[2][2];
-			matriz[2][2] = 0;
-			
-		}
-			
-			
-			}	
-		if(matriz[1][3] == 0  || matriz[1][3] == matriz[2][3]   ){
-			if(matriz[1][3] == matriz[2][3] && matriz[1][3] != 0 && matriz[2][3] != 0 && soma1_3 != 1 & soma2_3 != 1 ){
-				soma1_3 = 1;
-				soma2_3 = 0 ;
-				matriz[1][3] += matriz[2][3];
-				matriz[2][3] = 0;
-				
-				
-			}else if( matriz[1][3] == 0 && matriz[2][3] != 0  ) { 
-			soma1_3 = soma2_3 ;
-			soma2_3 = 0 ;  
-			matriz[1][3] += matriz[2][3];
-			matriz[2][3] = 0;
-		}
-			
-			
-			}
-			
-		if(matriz[0][0] == 0  || matriz[0][0] == matriz[1][0]    ){
-			if(matriz[0][0] == matriz[1][0] && matriz[0][0] != 0 && matriz[1][0] != 0  && soma0_0 != 1 && soma1_0 !=1 ){
-				soma0_0 = 1;
-				soma1_0 = 0 ;
-				matriz[0][0] += matriz[1][0];
-				matriz[1][0] = 0;
-			}else if(  matriz[0][0] == 0 && matriz[1][0] != 0  ) {
-				
-			soma0_0 = soma1_0;
-			soma1_0 = 0 ;
-			matriz[0][0] += matriz[1][0];
-			matriz[1][0] = 0;
-		}	
-		}
-		if(matriz[0][1] == 0 || matriz[0][1] == matriz[1][1] ){
-			if(matriz[0][1] == matriz[1][1] && matriz[0][1] != 0 && matriz[1][1] != 0 && soma0_1 != 1 && soma1_1 !=1  ){
-				soma0_1 = 1;
-				soma1_1 = 0 ;
-				matriz[0][1] += matriz[1][1];
-				matriz[1][1] = 0;
-				
-			}else if(  matriz[0][1] == 0 && matriz[1][1] != 0  ) {
-				
-			soma0_1 = soma1_1;
-			soma1_1 = 0 ;
-			matriz[0][1] += matriz[1][1];
-			matriz[1][1] = 0;
-		}	
-		}
-		if(matriz[0][2] == 0 || matriz[0][2] == matriz[1][2]   ){
-			if(matriz[0][2] == matriz[1][2] && matriz[0][2] != 0 && matriz[1][2] != 0 && soma0_2 != 1 && soma1_2 !=1  ){
-				soma0_2 = 1;
-				soma1_2 = 0 ;
-				matriz[0][2] += matriz[1][2];
-				matriz[1][2] = 0;
-
-			}else if(  matriz[0][2] == 0 && matriz[1][2] != 0  ) {
-				
-			soma0_2 = soma1_2;
-			soma1_2 = 0 ;
-			matriz[0][2] += matriz[1][2];
-			matriz[1][2] = 0;
-		}	
-			
-		}
-		if(matriz[0][3] == 0 || matriz[0][3] == matriz[1][3]   ){
-			if(matriz[0][3] == matriz[1][3] && matriz[0][3] != 0 && matriz[1][3] != 0  && soma0_3 != 1 && soma1_3 !=1  ){
-				soma0_3 = 1;
-				soma1_3 = 0 ;
-				matriz[0][3] += matriz[1][3];
-				matriz[1][3] = 0;
-				
-				
-			}else if(  matriz[0][3] == 0 && matriz[1][3] != 0  ) {
-				
-			soma0_3 = soma1_3;
-			soma1_3 = 0 ;
-			matriz[0][3] += matriz[1][3];
-			matriz[1][3] = 0;
-		}	
-			
-		}
 			
 	}
 	void movDireita(){
 		
-		if(matriz[0][1] == 0 || matriz[0][1] == matriz[0][0]   ){
-			if(matriz[0][1] == matriz[0][0] && matriz[0][1] != 0 && matriz[0][0] != 0 && soma0_1 != 1 && soma0_0 !=1    ){
-				soma0_1 = 1;
-				soma0_0 = 0 ;
-				matriz[0][1] += matriz[0][0];
-				matriz[0][0] = 0;
-				
-			}else if(  matriz[0][1] == 0 && matriz[0][0] != 0  ) {
-				
-			soma0_1 = soma0_0;
-			soma0_0 = 0 ;
-			matriz[0][1] += matriz[0][0];
-			matriz[0][0] = 0;
-			
-		}	
-			
-		}
-		if(matriz[0][2] == 0 || matriz[0][2] == matriz[0][1]     ){
-			if(matriz[0][2] == matriz[0][1] && matriz[0][2] != 0 && matriz[0][1] != 0 && soma0_2 != 1 && soma0_1 !=1  ){
-				soma0_2 = 1;
-				soma0_1 = 0 ;
-				matriz[0][2] += matriz[0][1];
-				matriz[0][1] = 0;
+		if(matriz[3][3] == 0 || matriz[3][3] == matriz[3][2] ){
+			if(matriz[3][3] == matriz[3][2] && matriz[3][3] != 0 && matriz[3][2] != 0 && soma3_3 != 1 && soma3_2 !=1  ){
+				soma3_3 = 1;
+				soma3_2 = 0 ;
+				matriz[3][3] += matriz[3][2];
+				matriz[3][2] = 0;
 				
 				
-			}else if(  matriz[0][2] == 0 && matriz[0][1] != 0  ) {
+			}else if(  matriz[3][3] == 0 && matriz[3][2] != 0  ) {
 				
-			soma0_2 = soma0_1;
-			soma0_1 = 0 ;
-			matriz[0][2] += matriz[0][1];
-			matriz[0][1] = 0;
-			
-		}	
-			
-		}
-		if(matriz[0][3] == 0 || matriz[0][3] == matriz[0][2] ){
-			if(matriz[0][3] == matriz[0][2] && matriz[0][3] != 0 && matriz[0][2] != 0  && soma0_3 != 1 && soma0_2 !=1 ){
-				soma0_3 = 1;
-				soma0_2 = 0 ;
-				matriz[0][3] += matriz[0][2];
-				matriz[0][2] = 0;
-				
-				
-			}else if(  matriz[0][3] == 0 && matriz[0][2] != 0  ) {
-				
-			soma0_3 = soma0_2;
-			soma0_2 = 0 ;
-			matriz[0][3] += matriz[0][2];
-			matriz[0][2] = 0;
-			
-		}	
-			
-		}
-		if(matriz[1][1] == 0 || matriz[1][1] == matriz[1][0] ){
-			if(matriz[1][1] == matriz[1][0] && matriz[1][1] != 0 && matriz[1][0] != 0  && soma1_1 != 1 && soma1_0 !=1 ){
-				soma1_1 = 1;
-				soma1_0 = 0 ;
-				matriz[1][1] += matriz[1][0];
-				matriz[1][0] = 0;
-				
-				
-			}else if(  matriz[1][1] == 0 && matriz[1][0] != 0  ) {
-				
-			soma1_1 = soma1_0;
-			soma1_0 = 0 ;
-			matriz[1][1] += matriz[1][0];
-			matriz[1][0] = 0;
-			
-		}	
-			
-		}
-		if(matriz[1][2] == 0 || matriz[1][2] == matriz[1][1] ){
-			if(matriz[1][2] == matriz[1][1] && matriz[1][2] != 0 && matriz[1][1] != 0 && soma1_2 != 1 && soma1_1 !=1 ){
-				soma1_2 = 1;
-				soma1_1 = 0 ;
-				matriz[1][2] += matriz[1][1];
-				matriz[1][1] = 0;
-				
-			}else if(  matriz[1][2] == 0 && matriz[1][1] != 0  ) {
-				
-			soma1_2 = soma1_1;
-			soma1_1 = 0 ;
-			matriz[1][2] += matriz[1][1];
-			matriz[1][1] = 0;
-			
-		}	
-			
-		}
-		if(matriz[1][3] == 0 || matriz[1][3] == matriz[1][2]  ){
-			if(matriz[1][3] == matriz[1][2] && matriz[1][3] != 0 && matriz[1][2] != 0 && soma1_3 != 1 && soma1_2 !=1  ){
-				soma1_3 = 1;
-				soma1_2 = 0 ;
-				matriz[1][3] += matriz[1][2];
-				matriz[1][2] = 0;
-				
-				
-			}else if(  matriz[1][3] == 0 && matriz[1][2] != 0  ) {
-				
-			soma1_3 = soma1_2;
-			soma1_2 = 0 ;
-			matriz[1][3] += matriz[1][2];
-			matriz[1][2] = 0;
-			
-		}	
-			
-		}
-		if(matriz[2][1] == 0 || matriz[2][1] == matriz[2][0] ){
-			if(matriz[2][1] == matriz[2][0] && matriz[2][1] != 0 && matriz[2][0] != 0 && soma2_1 != 1 && soma2_0 !=1   ){
-				soma2_1 = 1;
-				soma2_0 = 0 ;
-				matriz[2][1] += matriz[2][0];
-				matriz[2][0] = 0;
-				
-				
-			}else if(  matriz[2][1] == 0 && matriz[2][0] != 0  ) {
-				
-			soma2_1 = soma2_0;
-			soma2_0 = 0 ;
-			matriz[2][1] += matriz[2][0];
-			matriz[2][0] = 0;
-			
-		}	
-			
-		}
-		if(matriz[2][2] == 0 || matriz[2][2] == matriz[2][1]  ){
-			if(matriz[2][2] == matriz[2][1] && matriz[2][2] != 0 && matriz[2][1] != 0  && soma2_2 != 1 && soma2_1 !=1 ){
-				soma2_2 = 1;
-				soma2_1 = 0 ;
-				matriz[2][2] += matriz[2][1];
-				matriz[2][1] = 0;
-				
-				
-			}else if(  matriz[2][2] == 0 && matriz[2][1] != 0  ) {
-				
-			soma2_2 = soma2_1;
-			soma2_1 = 0 ;
-			matriz[2][2] += matriz[2][1];
-			matriz[2][1] = 0;
-			
-		}	
-			
-		}
-		if(matriz[2][3] == 0 || matriz[2][3] == matriz[2][2]  ){
-			if(matriz[2][3] == matriz[2][2] && matriz[2][3] != 0 && matriz[2][2] != 0 && soma2_3 != 1 && soma2_2 !=1 ){
-				soma2_3 = 1;
-				soma2_2 = 0 ;
-				matriz[2][3] += matriz[2][2];
-				matriz[2][2] = 0;
-				
-				
-			}else if(  matriz[2][3] == 0 && matriz[2][2] != 0  ) {
-				
-			soma2_3 = soma2_2;
-			soma2_2 = 0 ;
-			matriz[2][3] += matriz[2][2];
-			matriz[2][2] = 0;
-			
-		}	
-			
-		}
-		if(matriz[3][1] == 0 || matriz[3][1] == matriz[3][0] ){
-			if(matriz[3][1] == matriz[3][0] && matriz[3][1] != 0 && matriz[3][0] != 0 && soma3_1 != 1 && soma3_0 !=1  ){
-				soma3_1 = 1;
-				soma3_0 = 0 ;
-				matriz[3][1] += matriz[3][0];
-				matriz[3][0] = 0;
-				
-				
-			}else if(  matriz[3][1] == 0 && matriz[3][0] != 0  ) {
-				
-			soma3_1 = soma3_0;
-			soma3_0 = 0 ;
-			matriz[3][1] += matriz[3][0];
-			matriz[3][0] = 0;
+			soma3_3 = soma3_2;
+			soma3_2 = 0 ;
+			matriz[3][3] += matriz[3][2];
+			matriz[3][2] = 0;
 			
 		}	
 			
@@ -748,20 +588,180 @@ int main(int argc, char *argv[]) {
 		}	
 			
 		}
-		if(matriz[3][3] == 0 || matriz[3][3] == matriz[3][2] ){
-			if(matriz[3][3] == matriz[3][2] && matriz[3][3] != 0 && matriz[3][2] != 0 && soma3_3 != 1 && soma3_2 !=1  ){
-				soma3_3 = 1;
-				soma3_2 = 0 ;
-				matriz[3][3] += matriz[3][2];
-				matriz[3][2] = 0;
+		if(matriz[3][1] == 0 || matriz[3][1] == matriz[3][0] ){
+			if(matriz[3][1] == matriz[3][0] && matriz[3][1] != 0 && matriz[3][0] != 0 && soma3_1 != 1 && soma3_0 !=1  ){
+				soma3_1 = 1;
+				soma3_0 = 0 ;
+				matriz[3][1] += matriz[3][0];
+				matriz[3][0] = 0;
 				
 				
-			}else if(  matriz[3][3] == 0 && matriz[3][2] != 0  ) {
+			}else if(  matriz[3][1] == 0 && matriz[3][0] != 0  ) {
 				
-			soma3_3 = soma3_2;
-			soma3_2 = 0 ;
-			matriz[3][3] += matriz[3][2];
-			matriz[3][2] = 0;
+			soma3_1 = soma3_0;
+			soma3_0 = 0 ;
+			matriz[3][1] += matriz[3][0];
+			matriz[3][0] = 0;
+			
+		}	
+			
+		}
+		if(matriz[2][3] == 0 || matriz[2][3] == matriz[2][2]  ){
+			if(matriz[2][3] == matriz[2][2] && matriz[2][3] != 0 && matriz[2][2] != 0 && soma2_3 != 1 && soma2_2 !=1 ){
+				soma2_3 = 1;
+				soma2_2 = 0 ;
+				matriz[2][3] += matriz[2][2];
+				matriz[2][2] = 0;
+				
+				
+			}else if(  matriz[2][3] == 0 && matriz[2][2] != 0  ) {
+				
+			soma2_3 = soma2_2;
+			soma2_2 = 0 ;
+			matriz[2][3] += matriz[2][2];
+			matriz[2][2] = 0;
+			
+		}	
+			
+		}
+		if(matriz[2][2] == 0 || matriz[2][2] == matriz[2][1]  ){
+			if(matriz[2][2] == matriz[2][1] && matriz[2][2] != 0 && matriz[2][1] != 0  && soma2_2 != 1 && soma2_1 !=1 ){
+				soma2_2 = 1;
+				soma2_1 = 0 ;
+				matriz[2][2] += matriz[2][1];
+				matriz[2][1] = 0;
+				
+				
+			}else if(  matriz[2][2] == 0 && matriz[2][1] != 0  ) {
+				
+			soma2_2 = soma2_1;
+			soma2_1 = 0 ;
+			matriz[2][2] += matriz[2][1];
+			matriz[2][1] = 0;
+			
+		}	
+			
+		}
+		if(matriz[2][1] == 0 || matriz[2][1] == matriz[2][0] ){
+			if(matriz[2][1] == matriz[2][0] && matriz[2][1] != 0 && matriz[2][0] != 0 && soma2_1 != 1 && soma2_0 !=1   ){
+				soma2_1 = 1;
+				soma2_0 = 0 ;
+				matriz[2][1] += matriz[2][0];
+				matriz[2][0] = 0;
+				
+				
+			}else if(  matriz[2][1] == 0 && matriz[2][0] != 0  ) {
+				
+			soma2_1 = soma2_0;
+			soma2_0 = 0 ;
+			matriz[2][1] += matriz[2][0];
+			matriz[2][0] = 0;
+			
+		}	
+			
+		}
+		if(matriz[1][3] == 0 || matriz[1][3] == matriz[1][2]  ){
+			if(matriz[1][3] == matriz[1][2] && matriz[1][3] != 0 && matriz[1][2] != 0 && soma1_3 != 1 && soma1_2 !=1  ){
+				soma1_3 = 1;
+				soma1_2 = 0 ;
+				matriz[1][3] += matriz[1][2];
+				matriz[1][2] = 0;
+				
+				
+			}else if(  matriz[1][3] == 0 && matriz[1][2] != 0  ) {
+				
+			soma1_3 = soma1_2;
+			soma1_2 = 0 ;
+			matriz[1][3] += matriz[1][2];
+			matriz[1][2] = 0;
+			
+		}	
+			
+		}
+		if(matriz[1][2] == 0 || matriz[1][2] == matriz[1][1] ){
+			if(matriz[1][2] == matriz[1][1] && matriz[1][2] != 0 && matriz[1][1] != 0 && soma1_2 != 1 && soma1_1 !=1 ){
+				soma1_2 = 1;
+				soma1_1 = 0 ;
+				matriz[1][2] += matriz[1][1];
+				matriz[1][1] = 0;
+				
+			}else if(  matriz[1][2] == 0 && matriz[1][1] != 0  ) {
+				
+			soma1_2 = soma1_1;
+			soma1_1 = 0 ;
+			matriz[1][2] += matriz[1][1];
+			matriz[1][1] = 0;
+			
+		}	
+			
+		}
+		if(matriz[1][1] == 0 || matriz[1][1] == matriz[1][0] ){
+			if(matriz[1][1] == matriz[1][0] && matriz[1][1] != 0 && matriz[1][0] != 0  && soma1_1 != 1 && soma1_0 !=1 ){
+				soma1_1 = 1;
+				soma1_0 = 0 ;
+				matriz[1][1] += matriz[1][0];
+				matriz[1][0] = 0;
+				
+				
+			}else if(  matriz[1][1] == 0 && matriz[1][0] != 0  ) {
+				
+			soma1_1 = soma1_0;
+			soma1_0 = 0 ;
+			matriz[1][1] += matriz[1][0];
+			matriz[1][0] = 0;
+			
+		}	
+			
+		}
+		if(matriz[0][3] == 0 || matriz[0][3] == matriz[0][2] ){
+			if(matriz[0][3] == matriz[0][2] && matriz[0][3] != 0 && matriz[0][2] != 0  && soma0_3 != 1 && soma0_2 !=1 ){
+				soma0_3 = 1;
+				soma0_2 = 0 ;
+				matriz[0][3] += matriz[0][2];
+				matriz[0][2] = 0;
+				
+				
+			}else if(  matriz[0][3] == 0 && matriz[0][2] != 0  ) {
+				
+			soma0_3 = soma0_2;
+			soma0_2 = 0 ;
+			matriz[0][3] += matriz[0][2];
+			matriz[0][2] = 0;
+			
+		}	
+			
+		}
+		if(matriz[0][2] == 0 || matriz[0][2] == matriz[0][1]     ){
+			if(matriz[0][2] == matriz[0][1] && matriz[0][2] != 0 && matriz[0][1] != 0 && soma0_2 != 1 && soma0_1 !=1  ){
+				soma0_2 = 1;
+				soma0_1 = 0 ;
+				matriz[0][2] += matriz[0][1];
+				matriz[0][1] = 0;
+				
+				
+			}else if(  matriz[0][2] == 0 && matriz[0][1] != 0  ) {
+				
+			soma0_2 = soma0_1;
+			soma0_1 = 0 ;
+			matriz[0][2] += matriz[0][1];
+			matriz[0][1] = 0;
+			
+		}	
+			
+		}
+		if(matriz[0][1] == 0 || matriz[0][1] == matriz[0][0]   ){
+			if(matriz[0][1] == matriz[0][0] && matriz[0][1] != 0 && matriz[0][0] != 0 && soma0_1 != 1 && soma0_0 !=1    ){
+				soma0_1 = 1;
+				soma0_0 = 0 ;
+				matriz[0][1] += matriz[0][0];
+				matriz[0][0] = 0;
+				
+			}else if(  matriz[0][1] == 0 && matriz[0][0] != 0  ) {
+				
+			soma0_1 = soma0_0;
+			soma0_0 = 0 ;
+			matriz[0][1] += matriz[0][0];
+			matriz[0][0] = 0;
 			
 		}	
 			
@@ -978,71 +978,71 @@ int main(int argc, char *argv[]) {
 }
 	void moveDown(){
 
-		if(matriz[1][0] == 0 || matriz[1][0] == matriz[0][0] ){
-			if(matriz[1][0] == matriz[0][0] && matriz[1][0] != 0 && matriz[0][0] != 0  && soma1_0 != 1 && soma0_0 !=1   ){
-				soma1_0 = 1;
-				soma0_0 = 0 ;
-				matriz[1][0] += matriz[0][0];
-				matriz[0][0] = 0;
+		if(matriz[3][0] == 0 || matriz[3][0] == matriz[2][0] ){
+			if(matriz[3][0] == matriz[2][0] && matriz[3][0] != 0 && matriz[2][0] != 0 && soma3_0 != 1 && soma2_0 !=1 ){
+				soma3_0 = 1;
+				soma2_0 = 0 ;
+				matriz[3][0] += matriz[2][0];
+				matriz[2][0] = 0;
 				
 				
-			}else if(  matriz[1][0] == 0 && matriz[0][0] != 0  ) {
+			}else if(  matriz[3][0] == 0 && matriz[2][0] != 0  ) {
 				
-			soma1_0 = soma0_0;
-			soma0_0 = 0 ;
-			matriz[1][0] += matriz[0][0];
-			matriz[0][0] = 0;
+			soma3_0 = soma2_0;
+			soma2_0 = 0 ;
+			matriz[3][0] += matriz[2][0];
+			matriz[2][0] = 0;
 			
 		}
 		}
-		if(matriz[1][1] == 0 || matriz[1][1] == matriz[0][1] ){
-			if(matriz[1][1] == matriz[0][1] && matriz[1][1] != 0 && matriz[0][1] != 0  && soma1_1 != 1 && soma0_1 !=1 ){
-				soma1_1 = 1;
-				soma0_1 = 0 ;
-				matriz[1][1] += matriz[0][1];
-				matriz[0][1] = 0;
+		if(matriz[3][1] == 0 || matriz[3][1] == matriz[2][1] ){
+			if(matriz[3][1] == matriz[2][1] && matriz[3][1] != 0 && matriz[2][1] != 0 && soma3_1 != 1 && soma2_1 !=1 ){
+				soma3_1 = 1;
+				soma2_1 = 0 ;
+				matriz[3][1] += matriz[2][1];
+				matriz[2][1] = 0;
 				
 				
-			}else if(  matriz[1][1] == 0 && matriz[0][1] != 0  ) {
+			}else if(  matriz[3][1] == 0 && matriz[2][1] != 0  ) {
 				
-			soma1_1 = soma0_1;
-			soma0_1 = 0 ;
-			matriz[1][1] += matriz[0][1];
-			matriz[0][1] = 0;
+			soma3_1 = soma2_1;
+			soma2_1 = 0 ;
+			matriz[3][1] += matriz[2][1];
+			matriz[2][1] = 0;
 			
 		}
 		}
-		if(matriz[1][2] == 0 || matriz[1][2] == matriz[0][2] ){
-			if(matriz[1][2] == matriz[0][2] && matriz[1][2] != 0 && matriz[0][2] != 0 && soma1_2 != 1 && soma0_2 !=1 ){
-				soma1_2 = 1;
-				soma0_2 = 0 ;
-				matriz[1][2] += matriz[0][2];
-				matriz[0][2] = 0;
+		if(matriz[3][2] == 0 || matriz[3][2] == matriz[2][2] ){
+			if(matriz[3][2] == matriz[2][2] && matriz[3][2] != 0 && matriz[2][2] != 0 && soma3_2 != 1 && soma2_2 !=1 ){
+				soma3_2 = 1;
+				soma2_2 = 0 ;
+				matriz[3][2] += matriz[2][2];
+				matriz[2][2] = 0;
 				
 				
-			}else if(  matriz[1][2] == 0 && matriz[0][2] != 0  ) {
+			}else if(  matriz[3][2] == 0 && matriz[2][2] != 0  ) {
 				
-			soma1_2 = soma0_2;
-			soma0_2 = 0 ;
-			matriz[1][2] += matriz[0][2];
-			matriz[0][2] = 0;
+			soma3_2 = soma2_2;
+			soma2_2 = 0 ;
+			matriz[3][2] += matriz[2][2];
+			matriz[2][2] = 0;
 			
 		}
 		}
-		if(matriz[1][3] == 0 || matriz[1][3] == matriz[0][3] ){
-			if(matriz[1][3] == matriz[0][3] && matriz[1][3] != 0 && matriz[0][3] != 0 && soma1_3 != 1 && soma0_3 !=1 ){
-				soma1_3 = 1;
-				soma0_3 = 0 ;
-				matriz[1][3] += matriz[0][3];
-				matriz[0][3] = 0;
+		if(matriz[3][3] == 0 || matriz[3][3] == matriz[2][3] ){
+			if(matriz[3][3] == matriz[2][3] && matriz[3][3] != 0 && matriz[2][3] != 0 && soma3_3 != 1 && soma2_3 !=1 ){
+				soma3_3 = 1;
+				soma2_3 = 0 ;
+				matriz[3][3] += matriz[2][3];
+				matriz[2][3] = 0;
 				
 				
-			}else if(  matriz[1][3] == 0 && matriz[0][3] != 0  ) {
+			}else if(  matriz[3][3] == 0 && matriz[2][3] != 0  ) {
 				
-			soma1_3 = soma0_3;
-			soma0_3 = 0 ;
-			matriz[1][3] += matriz[0][3];
-			matriz[0][3] = 0;
+			soma3_3 = soma2_3;
+			soma2_3 = 0 ;
+			matriz[3][3] += matriz[2][3];
+			matriz[2][3] = 0;
 			
 		}
 		}
@@ -1113,71 +1113,71 @@ int main(int argc, char *argv[]) {
 			
 		}
 		}
-		if(matriz[3][0] == 0 || matriz[3][0] == matriz[2][0] ){
-			if(matriz[3][0] == matriz[2][0] && matriz[3][0] != 0 && matriz[2][0] != 0 && soma3_0 != 1 && soma2_0 !=1 ){
-				soma3_0 = 1;
-				soma2_0 = 0 ;
-				matriz[3][0] += matriz[2][0];
-				matriz[2][0] = 0;
+		if(matriz[1][0] == 0 || matriz[1][0] == matriz[0][0] ){
+			if(matriz[1][0] == matriz[0][0] && matriz[1][0] != 0 && matriz[0][0] != 0  && soma1_0 != 1 && soma0_0 !=1   ){
+				soma1_0 = 1;
+				soma0_0 = 0 ;
+				matriz[1][0] += matriz[0][0];
+				matriz[0][0] = 0;
 				
 				
-			}else if(  matriz[3][0] == 0 && matriz[2][0] != 0  ) {
+			}else if(  matriz[1][0] == 0 && matriz[0][0] != 0  ) {
 				
-			soma3_0 = soma2_0;
-			soma2_0 = 0 ;
-			matriz[3][0] += matriz[2][0];
-			matriz[2][0] = 0;
+			soma1_0 = soma0_0;
+			soma0_0 = 0 ;
+			matriz[1][0] += matriz[0][0];
+			matriz[0][0] = 0;
 			
 		}
 		}
-		if(matriz[3][1] == 0 || matriz[3][1] == matriz[2][1] ){
-			if(matriz[3][1] == matriz[2][1] && matriz[3][1] != 0 && matriz[2][1] != 0 && soma3_1 != 1 && soma2_1 !=1 ){
-				soma3_1 = 1;
-				soma2_1 = 0 ;
-				matriz[3][1] += matriz[2][1];
-				matriz[2][1] = 0;
+		if(matriz[1][1] == 0 || matriz[1][1] == matriz[0][1] ){
+			if(matriz[1][1] == matriz[0][1] && matriz[1][1] != 0 && matriz[0][1] != 0  && soma1_1 != 1 && soma0_1 !=1 ){
+				soma1_1 = 1;
+				soma0_1 = 0 ;
+				matriz[1][1] += matriz[0][1];
+				matriz[0][1] = 0;
 				
 				
-			}else if(  matriz[3][1] == 0 && matriz[2][1] != 0  ) {
+			}else if(  matriz[1][1] == 0 && matriz[0][1] != 0  ) {
 				
-			soma3_1 = soma2_1;
-			soma2_1 = 0 ;
-			matriz[3][1] += matriz[2][1];
-			matriz[2][1] = 0;
+			soma1_1 = soma0_1;
+			soma0_1 = 0 ;
+			matriz[1][1] += matriz[0][1];
+			matriz[0][1] = 0;
 			
 		}
 		}
-		if(matriz[3][2] == 0 || matriz[3][2] == matriz[2][2] ){
-			if(matriz[3][2] == matriz[2][2] && matriz[3][2] != 0 && matriz[2][2] != 0 && soma3_2 != 1 && soma2_2 !=1 ){
-				soma3_2 = 1;
-				soma2_2 = 0 ;
-				matriz[3][2] += matriz[2][2];
-				matriz[2][2] = 0;
+		if(matriz[1][2] == 0 || matriz[1][2] == matriz[0][2] ){
+			if(matriz[1][2] == matriz[0][2] && matriz[1][2] != 0 && matriz[0][2] != 0 && soma1_2 != 1 && soma0_2 !=1 ){
+				soma1_2 = 1;
+				soma0_2 = 0 ;
+				matriz[1][2] += matriz[0][2];
+				matriz[0][2] = 0;
 				
 				
-			}else if(  matriz[3][2] == 0 && matriz[2][2] != 0  ) {
+			}else if(  matriz[1][2] == 0 && matriz[0][2] != 0  ) {
 				
-			soma3_2 = soma2_2;
-			soma2_2 = 0 ;
-			matriz[3][2] += matriz[2][2];
-			matriz[2][2] = 0;
+			soma1_2 = soma0_2;
+			soma0_2 = 0 ;
+			matriz[1][2] += matriz[0][2];
+			matriz[0][2] = 0;
 			
 		}
 		}
-		if(matriz[3][3] == 0 || matriz[3][3] == matriz[2][3] ){
-			if(matriz[3][3] == matriz[2][3] && matriz[3][3] != 0 && matriz[2][3] != 0 && soma3_3 != 1 && soma2_3 !=1 ){
-				soma3_3 = 1;
-				soma2_3 = 0 ;
-				matriz[3][3] += matriz[2][3];
-				matriz[2][3] = 0;
+		if(matriz[1][3] == 0 || matriz[1][3] == matriz[0][3] ){
+			if(matriz[1][3] == matriz[0][3] && matriz[1][3] != 0 && matriz[0][3] != 0 && soma1_3 != 1 && soma0_3 !=1 ){
+				soma1_3 = 1;
+				soma0_3 = 0 ;
+				matriz[1][3] += matriz[0][3];
+				matriz[0][3] = 0;
 				
 				
-			}else if(  matriz[3][3] == 0 && matriz[2][3] != 0  ) {
+			}else if(  matriz[1][3] == 0 && matriz[0][3] != 0  ) {
 				
-			soma3_3 = soma2_3;
-			soma2_3 = 0 ;
-			matriz[3][3] += matriz[2][3];
-			matriz[2][3] = 0;
+			soma1_3 = soma0_3;
+			soma0_3 = 0 ;
+			matriz[1][3] += matriz[0][3];
+			matriz[0][3] = 0;
 			
 		}
 		}
@@ -1277,47 +1277,47 @@ int main(int argc, char *argv[]) {
 	
 }
 	}
-	
+	 int posicionador = 5 ;
 		system("clear||cls");
-		printf("                                                                                \n");
-	printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
-	printf("                          _______                                                         \n");
-	printf("     ||||  ||||    |||    |-------| ||    ||                                      \n");
-	printf("     || |||| ||   || ||      |||    ||____||                                         \n");
-	printf("     ||  ||  ||  || _ ||     |||    ||----||                                          \n");
-	printf("     ||      || ||     ||    |_|    ||    ||                                         \n");
-	printf("                    ||||||     ||             ||||||                          \n");
-	printf("                    ||        ||||   |||  ||| ||                               \n");
-	printf("                    || ||||  ||__||  || ||||| ||||||                             \n");
-	printf("                    ||||||| ||    || ||    || ||                                \n");
-	printf("                                              ||||||                            \n");
-	printf("                                                                                \n");
-	printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
-	printf("JOGADOR ATUAL: %s\n",playerAtual[0]);
-	printf("                                                       Melhores jogadores       \n");
-	printf("                                                      NOME      PONTUACAO       \n");
-	printf("                                                    ||=====================||\n");
-	printf("                                                    ||%s        %d           \n",player1[0],player1Score );
-	printf("                                                    ||%s        %d           \n",player2[0],player2Score);
-	printf("1 - Nova Partida                                    ||%s        %d           \n",player3[0],player3Score);
-	printf("2 - Continuar Partida                               ||%s        %d           \n",player4[0],player4Score);
-	printf("3 - Configuracoes                                   ||========0============||\n");
-	printf("4 - Ajuda                                                                    \n");
-	printf("5 - trocar de usuario                                                        \n");
-	printf("                                                                             \n");
-	printf("                                                                             \n");
-	scanf("%d", & escolhaUser);
-	switch(escolhaUser)
+		printf("                                                                                           \n");
+	printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n",(0+posicionador), (40));
+	printf("\033[%d;%dH                          _______                                                         \n",(1+posicionador), (40));
+	printf("\033[%d;%dH     ||||  ||||    |||    |-------| ||    ||                                      \n",(2+posicionador), (40));
+	printf("\033[%d;%dH     || |||| ||   || ||      |||    ||____||                                         \n",(3+posicionador), (40));
+	printf("\033[%d;%dH     ||  ||  ||  || _ ||     |||    ||----||                                          \n",(4+posicionador), (40));
+	printf("\033[%d;%dH     ||      || ||     ||    |_|    ||    ||                                         \n",(5+posicionador), (40));
+	printf("\033[%d;%dH                    ||||||     ||             ||||||                          \n",(6+posicionador), (40));
+	printf("\033[%d;%dH                    ||        ||||   |||  ||| ||                               \n",(7+posicionador), (40));
+	printf("\033[%d;%dH                    || ||||  ||__||  || ||||| ||||||                             \n",(8+posicionador), (40));
+	printf("\033[%d;%dH                    ||||||| ||    || ||    || ||                                \n",(9+posicionador), (40));
+	printf("\033[%d;%dH                                              ||||||                            \n",(10+posicionador), (40));
+	printf("\033[%d;%dH                                                                                \n",(11+posicionador), (40));
+	printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n",(12+posicionador), (40));
+	printf("\033[%d;%dHJOGADOR ATUAL: %s\n",(13+posicionador), (40),playerAtual[0]);
+	printf("\033[%d;%dH                                                       Melhores jogadores       \n",(14+posicionador), (40));
+	printf("\033[%d;%dH                                                      NOME      PONTUACAO       \n",(15+posicionador), (40));
+	printf("\033[%d;%dH                                                    ||=====================||\n",(16+posicionador), (40));
+	printf("\033[%d;%dH                                                    ||%s        %d           \n",(17+posicionador), (40),player1[0],player1Score );
+	printf("\033[%d;%dH                                                    ||%s        %d           \n",(18+posicionador), (40),player2[0],player2Score);
+	printf("\033[%d;%dH1 - Nova Partida                                    ||%s        %d           \n",(19+posicionador), (40),player3[0],player3Score);
+	printf("\033[%d;%dH2 - Continuar Partida                               ||%s        %d           \n",(20+posicionador), (40),player4[0],player4Score);
+	printf("\033[%d;%dH3 - Configuracoes                                   ||========0============||\n",(21+posicionador), (40));
+	printf("\033[%d;%dH4 - Ajuda                                                                    \n",(22+posicionador), (40));
+	printf("\033[%d;%dH5 - trocar de usuario                                                        \n",(23+posicionador), (40));
+	printf("\033[%d;%dH                                                                             ",(24+posicionador), (40));
+	printf("\033[%d;%dH                                                                             ",(25+posicionador), (40));
+	scanf("%c",  & respostaUserS);
+	switch(respostaUserS)
 	{
-		case 1 :
+		case '1' :
 			carregarJogo = 0 ;
 			textoJogo(); 
 			break;
-		case 2 :
+		case '2' :
 			carregarJogo = 1 ; 
 			textoJogo();
 			break; 	
-		case 3 :
+		case '3' :
 			system("clear||cls");	
 			printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
 			printf("                          _______                                                         \n");
@@ -1343,7 +1343,7 @@ int main(int argc, char *argv[]) {
 				textoMenu();
 			}
 			break;
-		case 4 :
+		case '4' :
 			system("clear||cls");
 		printf("                                                                                \n");
 			printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
@@ -1383,10 +1383,15 @@ int main(int argc, char *argv[]) {
 			
 			
 			break;
-		case 5 :
+		case '5' :
 			system("cls");
 			printf("Saindo.....");
 			textoInicial();
+			break;
+		default:
+			textoMenu();
+			
+			break ;	
 		}
 	}
 			void textoLogin()
@@ -1541,6 +1546,153 @@ int main(int argc, char *argv[]) {
 	printf(" \033[%d;%dH                       pressione 0 para voltar                                    \n", (15), (40));
 	printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n", (16), (40));
 	void cadastraUsuario(){
+		if(strcmp(player1[0], "nome") != 0 &&   strcmp(player2[0], "nome") != 0 &&  strcmp(player3[0], "nome") != 0 &&  strcmp(player4[0], "nome") != 0  ){
+		printf("Todos os cadastros já estão preenchidos \n");
+		printf("Selecione um que deseja deletar e insira a senha do mesmo para concluir a ação \n");
+		printf("Player 1 : %s\n", player1[0]);
+		printf("Player 2 : %s\n", player2[0]);
+		printf("Player 3 : %s\n", player3[0]);
+		printf("Player 4 : %s\n", player4[0]);
+		printf("Sair - 0 : %s\n");
+		scanf("%c", & respostaUserS);
+		switch(respostaUserS){
+			case '1':
+				printf("Player 1 selecionado ! ");
+				printf("Insira por favor a senha do cadastro! ");
+				scanf("%s", & senhaUsuario);
+				if(strcmp(senhaUsuario, player1[2]) == 0 ){
+					sleep(1);
+					system("cls");
+					printf("Deletando Cadastro.");
+					sleep(1);
+					system("cls");
+					printf("Deletando Cadastro..");
+					sleep(1);
+					system("cls");
+					printf("Deletando Cadastro...");
+					sleep(1);
+					system("cls");
+					printf("Cadastro deletado com sucesso!");
+					strcpy(player1[0],"nome");
+					strcpy(player1[1],"email");
+					strcpy(player1[2],"senha");
+					strcpy(player1[3],"codigo");
+					matrizS1[4][4] ;
+					system("cls");
+					textoCadastro();
+					
+				}else{
+					printf("Senha invalida !");
+					sleep(2);
+					textoCadastro();
+				}
+				
+				break;
+			case '2':	
+				printf("Player 2 selecionado ! ");
+				printf("Insira por favor a senha do cadastro! ");
+				scanf("%s", & senhaUsuario);
+				if(strcmp(senhaUsuario, player2[2]) == 0 ){
+					sleep(1);
+					system("cls");
+					printf("Deletando Cadastro.");
+					sleep(1);
+					system("cls");
+					printf("Deletando Cadastro..");
+					sleep(1);
+					system("cls");
+					printf("Deletando Cadastro...");
+					sleep(1);
+					system("cls");
+					printf("Cadastro deletado com sucesso!");
+					strcpy(player2[0],"nome");
+					strcpy(player2[1],"email");
+					strcpy(player2[2],"senha");
+					strcpy(player2[3],"codigo");
+					matrizS2[4][4] ;
+					system("cls");
+					textoCadastro();
+					
+				}else{
+					printf("Senha invalida !");
+					sleep(2);
+					textoCadastro();
+				}
+				break;
+				
+			case '3':
+				printf("Player 3 selecionado ! ");
+				printf("Insira por favor a senha do cadastro! ");
+				scanf("%s", & senhaUsuario);
+				if(strcmp(senhaUsuario, player3[2]) == 0 ){
+					sleep(1);
+					system("cls");
+					printf("Deletando Cadastro.");
+					sleep(1);
+					system("cls");
+					printf("Deletando Cadastro..");
+					sleep(1);
+					system("cls");
+					printf("Deletando Cadastro...");
+					sleep(1);
+					system("cls");
+					printf("Cadastro deletado com sucesso!");
+					strcpy(player3[0],"nome");
+					strcpy(player3[1],"email");
+					strcpy(player3[2],"senha");
+					strcpy(player3[3],"codigo");
+					matrizS3[4][4];
+					system("cls");
+					textoCadastro();
+					
+				}else{
+					printf("Senha invalida !");
+					sleep(2);
+					textoCadastro();
+				}
+				break;
+			case '4' :
+				
+				printf("Player 4 selecionado ! ");
+				printf("Insira por favor a senha do cadastro! ");
+				scanf("%s", & senhaUsuario);
+				if(strcmp(senhaUsuario, player4[2]) == 0 ){
+					sleep(1);
+					system("cls");
+					printf("Deletando Cadastro.");
+					sleep(1);
+					system("cls");
+					printf("Deletando Cadastro..");
+					sleep(1);
+					system("cls");
+					printf("Deletando Cadastro...");
+					sleep(1);
+					system("cls");
+					printf("Cadastro deletado com sucesso!");
+					strcpy(player4[0],"nome");
+					strcpy(player4[1],"email");
+					strcpy(player4[2],"senha");
+					strcpy(player4[3],"codigo");
+					matrizS4[4][4] ;
+					system("cls");
+					textoCadastro();
+					
+				}else{
+					printf("Senha invalida !");
+					sleep(2);
+					textoCadastro();
+				}
+				break;
+			case '0':
+				textoInicial();
+				
+				break;
+			default:
+				textoCadastro();
+				break;	
+		}
+		}else {
+		
 	char vazio[5] = "nome";
 	
 	printf("\033[%d;%dH                       Digite o seu nome de usuario: ",(17), (40));
@@ -1662,7 +1814,7 @@ int main(int argc, char *argv[]) {
 			strcpy(playerAtual[0],player4[0]);
 		}
 	}
-	}
+	}}
 	cadastraUsuario();
 	}
 		system("clear||cls");
