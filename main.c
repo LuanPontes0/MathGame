@@ -1,24 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
-#define MAX_LENGTH 100
-#define NUM_STRINGS 10
+#define MAX_LENGTH 50
+#define NUM_STRINGS 50
 #include<conio.h>
-
+#include <windows.h>
+void gotoxy(int x, int y)
+{
+  COORD coord;
+  coord.X = x;
+  coord.Y = y;
+  SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+}
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main(int argc, char *argv[]) {
-	
+	 int posicionador = 5 ;
+	 int posicionadorY = 5 ;
+	char nomes2[50][50] = {"nome","nome","nome","nome"};
+	int vetor2[4] = {0,0,0,0};
+	char playersNome[30][30]  = {""}; 	
+	system("color 71");
 	char respostaUserS;
 	setlocale(LC_ALL, "Portuguese");
 	int matrizS1[4][4];
 	int matrizS2[4][4];
 	int matrizS3[4][4];
 	int matrizS4[4][4];
-	char posicaoRank1 [NUM_STRINGS][MAX_LENGTH] = {"nome","0"} ;
-	char posicaoRank2 [NUM_STRINGS][MAX_LENGTH] = {"nome","0"};
-	char posicaoRank3 [NUM_STRINGS][MAX_LENGTH] = {"nome","0"} ;
-	char posicaoRank4 [NUM_STRINGS][MAX_LENGTH] = {"nome","0"};
 	int pontuacao = 0 ; 
  	int score = 0; 
 	int escolhaUser ;	
@@ -39,6 +47,7 @@ int main(int argc, char *argv[]) {
 
 	
 	void textoInicial(){
+		int playersRank[4] = {0,0,0,0};
 		void textoMenu()
 	{
 		void textoJogo()
@@ -70,107 +79,103 @@ int main(int argc, char *argv[]) {
 	int soma3_3 = 0 ;
 	void placar(){
 		
-			
+		int i, j;
+		playersRank[0] = vetor2[0];
+		playersRank[1] = vetor2[1];
+		playersRank[2] = vetor2[2];
+		playersRank[3] = vetor2[3];
+		if(strcmp(playerAtual[0],player1[0]) == 0 && score>=playersRank[0]){
+				playersRank[0] = score;
+		}if(strcmp(playerAtual[0],player2[0]) == 0 && score>=playersRank[1]){
+				playersRank[1] = score;
+		}if(strcmp(playerAtual[0],player3[0]) == 0 && score>=playersRank[2]){
+				playersRank[2] = score;
+		}if(strcmp(playerAtual[0],player4[0]) == 0 && score>=playersRank[3]){
+				playersRank[3] = score;
+		}
 		
-		if(strcmp(playerAtual[0],player1[0]) == 0 && score > player1Score){
-			player1Score = score ;
-			
-			/*if(player1Score > atoi(posicaoRank1[1]) ){
-				strcpy(posicaoRank2[0],posicaoRank1[0] );
-				strcpy(posicaoRank2[1],posicaoRank1[1]  );	
-				strcpy(posicaoRank1[0], player1[0]);
-				itoa(player1Score, posicaoRank1[1], 10);
-				
-			} else if(player1Score > atoi(posicaoRank2[1]) ){
-				
-				strcpy(posicaoRank2[0], player1[0]);
-				itoa(player1Score, posicaoRank2[1], 10);
-			}
-			else if(player1Score > atoi(posicaoRank3[1]) ){
-				 
-				strcpy(posicaoRank3[0], player1[0]);
-				itoa(player1Score, posicaoRank3[1], 10);
-			}
-			else if(player1Score > atoi(posicaoRank4[1]) ){
-				strcpy(posicaoRank4[0], player1[0]);
-				itoa(player1Score, posicaoRank4[1], 10);
-			}*/
-		}
-		if(strcmp(playerAtual[0],player2[0]) == 0 && score > player2Score){
-			player2Score = score ; 
-			/*
-			if(player2Score > atoi(posicaoRank1[1]) ){
-				strcpy(posicaoRank2[0],posicaoRank1[0] );
-				strcpy(posicaoRank2[1],posicaoRank1[1]  );	
-				strcpy(posicaoRank1[0], player2[0]);
-				itoa(player2Score, posicaoRank1[1], 10);
-				
-				
-			} else if(player2Score > atoi(posicaoRank2[1]) ){
-				
-				strcpy(posicaoRank2[0], player2[0]);
-				itoa(player2Score, posicaoRank2[1], 10);
-			}
-			else if(player2Score > atoi(posicaoRank3[1]) ){
-				
-				strcpy(posicaoRank3[0], player2[0]);
-				itoa(player2Score, posicaoRank3[1], 10);
-			}
-			else if(player2Score > atoi(posicaoRank4[1]) ){
-				
-				strcpy(posicaoRank4[0], player2[0]);
-				itoa(player2Score, posicaoRank4[1], 10);
-			}*/
-		}
-		if(strcmp(playerAtual[0],player3[0]) == 0 && score > player3Score ){
-			
-			player3Score = score ; 
-			/*
-			if(player3Score > atoi(posicaoRank1[1]) ){
-				
-				strcpy(posicaoRank1[0], player3[0]);
-				itoa(player3Score, posicaoRank1[1], 10);
-				
-			} else if(player3Score > atoi(posicaoRank2[1]) ){
-				
-				strcpy(posicaoRank2[0], player3[0]);
-				itoa(player3Score, posicaoRank2[1], 10);
-			}
-			else if(player3Score > atoi(posicaoRank3[1]) ){
-				 
-				strcpy(posicaoRank3[0], player3[0]);
-				itoa(player3Score, posicaoRank3[1], 10);
-			}
-			else if(player3Score > atoi(posicaoRank4[1]) ){
-				strcpy(posicaoRank4[0], player3[0]);
-				itoa(player3Score, posicaoRank4[1], 10);
-			}*/
-		}
-		if(strcmp(playerAtual[0],player4[0]) == 0 && score > player4Score ){
-			player4Score = score ; 
-			/*
-			if(player4Score > atoi(posicaoRank1[1]) ){
-				strcpy(posicaoRank1[0], player4[0]);
-				itoa(player4Score, posicaoRank1[1], 10);
-				
-			} else if(player4Score > atoi(posicaoRank2[1]) ){
-				
-				strcpy(posicaoRank2[0], player4[0]);
-				itoa(player4Score, posicaoRank2[1], 10);
-			}
-			else if(player4Score > atoi(posicaoRank3[1]) ){
-				 
-				strcpy(posicaoRank3[0], player4[0]);
-				itoa(player4Score, posicaoRank3[1], 10);
-			}
-			else if(player4Score > atoi(posicaoRank4[1]) ){
-				strcpy(posicaoRank4[0], player4[0]);
-				itoa(player4Score, posicaoRank4[1], 10);
-			}
-			
-		}*/
+		strcpy(playersNome[0], player1[0]);
+		strcpy(playersNome[1], player2[0]);
+		strcpy(playersNome[2], player3[0]);
+		strcpy(playersNome[3], player4[0]);
+		char nome1teste[50] ;
+		char nome2teste[50] ;
+		char nome3teste[50] ;
+		char nome4teste[50] ;
+		strcpy(nome1teste,player1[0]);
+		strcpy(nome2teste,player2[0]);
+		strcpy(nome3teste,player3[0]);
+		strcpy(nome4teste,player4[0]);
+	char nomes1[50][50] = {"luan", "pedro", "thiago", "gusta"} , a1[50],b1[50],c1[50],d1[50] ;
+	strcpy(nomes1[0], nome1teste);
+	strcpy(nomes1[1], nome2teste);
+	strcpy(nomes1[2], nome3teste);
+	strcpy(nomes1[3], nome4teste);
+	int vetor1[4] ={playersRank[0],playersRank[1],playersRank[2],playersRank[3]}, a = -1, b = -1 ,c = -1 ,d = -1;
+	vetor2[0] = 0 ;
+	vetor2[1] = 0 ;
+	vetor2[2] = 0 ;
+	vetor2[3] = 0 ;
+	strcpy(nomes2[0], a1);
+	strcpy(nomes2[1], b1);
+	strcpy(nomes2[2], c1);
+	strcpy(nomes2[3], d1);
+	for(i = 0 ; i<4; i++){
+
 		
-	}}
+		if(vetor1[i] >= d ){
+			strcpy(d1, nomes1[i]);
+			d = vetor1[i];
+		}if(vetor1[i]>c){
+			d = 0 ; 
+			d = c ; 
+			c = vetor1[i];
+			strcpy(d1, c1);
+			strcpy(c1, nomes1[i]);
+		}if(vetor1[i]>b){
+			c = 0 ; 
+			c = b ; 
+			b = vetor1[i];
+			strcpy(c1, b1);
+			strcpy(b1, nomes1[i]);
+		}if(vetor1[i]>a){
+			
+			if(strcmp(nomes1[i],a1) == 0){
+				
+			a = vetor1[i];
+			strcpy(a1, nomes1[i]);
+			
+			}else if(strcmp(b1,a1)!=0 &&  strcmp(nomes1[i],a1)!=0){
+			b = 0;
+			b = a ;
+			strcpy(b1, a1);
+			a = vetor1[i];
+			strcpy(a1, nomes1[i]);
+		}else if(strcmp(b1,a1)==0){
+			b = 0;
+			strcpy(b1, "nome");
+		a = vetor1[i];
+		strcpy(a1, nomes1[i]);
+	}
+		}
+	}
+	vetor2[0] = a ;
+	vetor2[1] = b ; 
+	vetor2[2] = c ;
+	vetor2[3] = d ;
+	strcpy(nomes2[0], a1);
+	strcpy(nomes2[1], b1);
+	strcpy(nomes2[2], c1);
+	strcpy(nomes2[3], d1);
+
+	
+	
+	
+}
+		
+	
+		
+	
 	
 	
 	int matriz[4][4] = {0} ;
@@ -178,7 +183,7 @@ int main(int argc, char *argv[]) {
 		for(linha = 0; linha<4;linha++){
 			for(coluna = 0 ; coluna<4; coluna++){
 					if(strcmp(playerAtual[0], player1[0]) == 0){
-					
+						
 					matriz[linha][coluna] = matrizS1[linha][coluna];
 					
 			}else if(strcmp(playerAtual[0], player2[0]) == 0){
@@ -208,6 +213,32 @@ int main(int argc, char *argv[]) {
 	int contador;
 	int respostaUser;
 	void mostraMatriz(){
+		
+		char corRed[50] = "\x1b[31m";
+		char corDefault[50] = "\x1b[1m\x1b[47m\x1b[34m";
+		char colorir0_0[50] = "\x1b[1m\x1b[100m\x1b[32m";
+		char colorir0_1[50] = "\x1b[1m\x1b[40m\x1b[33m";
+		char colorir0_2[50] = "\x1b[1m\x1b[40m\x1b[35m";
+		char colorir0_3[50] = "\x1b[1m\x1b[40m\x1b[36m";
+		char colorir1_0[50] = "\x1b[1m\x1b[40m\x1b[33m";
+		char colorir1_1[50] = "\x1b[1m\x1b[40m\x1b[35m";
+		char colorir1_2[50] = "\x1b[1m\x1b[40m\x1b[36m";
+		char colorir1_3[50] = "\x1b[1m\x1b[40m\x1b[32m";
+		char colorir2_0[50] = "\x1b[1m\x1b[40m\x1b[33m";
+		char colorir2_1[50] = "\x1b[1m\x1b[40m\x1b[35m";
+		char colorir2_2[50] = "\x1b[1m\x1b[40m\x1b[36m";
+		char colorir2_3[50] = "\x1b[1m\x1b[40m\x1b[33m";
+		char colorir3_0[50] = "\x1b[1m\x1b[40m\x1b[38m";
+		char colorir3_1[50] = "\x1b[1m\x1b[40m\x1b[39m";
+		char colorir3_2[50] = "\x1b[1m\x1b[40m\x1b[32m";
+		char colorir3_3[50] = "\x1b[1m\x1b[40m\x1b[33m";
+		
+		if(matriz[0][0] == 0){
+			strcpy(colorir0_0,"\x1b[1m\x1b[100m\x1b[32m");
+		}else if (matriz[0][0] == 2){
+			strcpy(colorir0_0,"\x1b[1m\x1b[40m\x1b[31m");
+		}
+		
 		/*for(linha = 0;linha<4;linha++){
 		for(coluna = 0;coluna<4;coluna++){
 			printf(" %i ",matriz[linha][coluna]);
@@ -219,40 +250,40 @@ int main(int argc, char *argv[]) {
 	printf("Pontuação Atual: %d ",pontuacao);*/
 	system("cls");
 		printf("                                                                                \n");
-	printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
-	printf("                          _______                                                         \n");
-	printf("     ||||  ||||    |||    |-------| ||    ||                                      \n");
-	printf("     || |||| ||   || ||      |||    ||____||                                         \n");
-	printf("     ||  ||  ||  || _ ||     |||    ||----||                                          \n");
-	printf("     ||      || ||     ||    |_|    ||    ||                                         \n");
-	printf("                    ||||||     ||             ||||||                          \n");
-	printf("                    ||        ||||   |||  ||| ||                               \n");
-	printf("                    || ||||  ||__||  || ||||| ||||||                             \n");
-	printf("                    ||||||| ||    || ||    || ||                                \n");
-	printf("                                              ||||||                            \n");
-	printf("                                                                                \n");
-	printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
-	printf(" ___________________________________________________                                                                   \n");
-	printf("||          ||           ||           ||           ||       JOGADOR : %s             \n",playerAtual[0] );
-	printf("||          ||           ||           ||           ||       PONTUACAO: %d             \n", score);
-	printf("||    %d          %d           %d           %d                                        \n",matriz[0][0],matriz[0][1],matriz[0][2],matriz[0][3]);
-	printf("||          ||           ||           ||           ||       movimentos:%d                           \n",pontuacao);
-	printf("||__________||___________||___________||___________||       1: começar novamente                            \n");	
-	printf("||          ||           ||           ||           ||       ESC: voltar para o menu principal\n");
-	printf("||          ||           ||           ||           ||                                   \n");
-	printf("||    %d           %d           %d           %d                                        \n",matriz[1][0],matriz[1][1],matriz[1][2],matriz[1][3]);
-	printf("||          ||           ||           ||           ||                                  \n");
-	printf("||__________||___________||___________||___________||                                   \n");
-	printf("||          ||           ||           ||           ||                                 \n");
-	printf("||          ||           ||           ||           ||                                   \n");
-	printf("||    %d          %d           %d           %d              \n",matriz[2][0],matriz[2][1],matriz[2][2],matriz[2][3]);
-	printf("||          ||           ||           ||           ||      ceta pra cima: mover numeros para cima\n");
-	printf("||__________||___________||___________||___________||      ceta pra baixo: mover numeros para baixo\n");
-	printf("||          ||           ||           ||           ||      ceta pra direita: mover numeros para direita\n");
-	printf("||          ||           ||           ||           ||      ceta pra esquerda: mover numeros para esquerda\n");
-	printf("||    %d          %d           %d           %d                                         \n",matriz[3][0],matriz[3][1],matriz[3][2],matriz[3][3]);
-	printf("||          ||           ||           ||           ||                                  \n");
-	printf("||__________||___________||___________||___________||                                   \n");
+	printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==--=-=-\n",(5), (42));
+	printf("\033[%d;%dH*                          _______                            *\n",(1+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*     ||||  ||||    |||    |-------| ||    ||             -   *\n",(2+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*     || |||| ||   || ||      |||    ||____||           +     *\n",(3+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*     ||  ||  ||  || _ ||     |||    ||----||            -    *\n",(4+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*     ||      || ||     ||    |_|    ||    ||           +     *\n",(5+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*                    ||||||     ||             ||||||    -    *\n",(6+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*                    ||        ||||   |||  ||| ||       +     *\n",(7+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*                    || ||||  ||__||  || ||||| ||||||    -    *\n",(8+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH* 2+2=peixe          ||||||| ||    || ||    || ||       _     *\n",(9+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*                                              ||||||    +    *\n",(10+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*                                                        +    *\n",(11+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n",(17), (42));
+	printf("\033[%d;%dH___________________________________________________                                                                   \n",(13+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH||          ||           ||           ||           ||       JOGADOR : %s             \n",(14+posicionador), (40+posicionadorY),playerAtual[0] );
+	printf("\033[%d;%dH||          ||           ||           ||           ||       PONTUACAO: %d             \n",(15+posicionador), (40+posicionadorY), score);
+	printf("\033[%d;%dH||   %s %d %s          %s %d %s           %s %d %s          %s %d %s                                         \n",(16+posicionador), (40+posicionadorY),colorir0_0,matriz[0][0],corDefault,colorir0_1,matriz[0][1],corDefault,colorir0_2,matriz[0][2],corDefault,colorir0_3,matriz[0][3],corDefault);
+	printf("\033[%d;%dH||          ||           ||           ||           ||       movimentos:%d                           \n",(17+posicionador), (40+posicionadorY),pontuacao);
+	printf("\033[%d;%dH||__________||___________||___________||___________||       1: começar novamente                            \n",(18+posicionador), (40+posicionadorY));	
+	printf("\033[%d;%dH||          ||           ||           ||           ||       ESC: voltar para o menu principal\n",(19+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH||          ||           ||           ||           ||                                   \n",(20+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH||   %s %d %s          %s %d %s          %s %d %s          %s %d %s                                       \n",(21+posicionador), (40+posicionadorY),colorir1_0,matriz[1][0],corDefault,colorir1_1,matriz[1][1],corDefault,colorir1_2,matriz[1][2],corDefault,colorir1_3,matriz[1][3],corDefault);
+	printf("\033[%d;%dH||          ||           ||           ||           ||                                  \n",(22+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH||__________||___________||___________||___________||                                   \n",(23+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH||          ||           ||           ||           ||                                 \n",(24+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH||          ||           ||           ||           ||                                   \n",(25+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH||   %s %d %s          %s %d %s           %s %d %s          %s %d %s              \n",(26+posicionador), (40+posicionadorY),colorir2_0,matriz[2][0],corDefault,colorir2_1,matriz[2][1],corDefault,colorir2_2,matriz[2][2],corDefault,colorir2_3,matriz[2][3]),corDefault;
+	printf("\033[%d;%dH||          ||           ||           ||           ||      seta pra cima: mover numeros para cima\n",(27+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH||__________||___________||___________||___________||      seta pra baixo: mover numeros para baixo\n",(28+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH||          ||           ||           ||           ||      seta pra direita: mover numeros para direita\n",(29+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH||          ||           ||           ||           ||      seta pra esquerda: mover numeros para esquerda\n",(30+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH||    %s %d %s         %s %d %s           %s %d %s           %s %d %s                                         \n",(31+posicionador), (40+posicionadorY),colorir3_0,matriz[3][0],corDefault,colorir3_1,matriz[3][1],corDefault,colorir3_2,matriz[3][2],corDefault,colorir3_3,matriz[3][3],corDefault);
+	printf("\033[%d;%dH||          ||           ||           ||           ||                                  \n",(32+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH||__________||___________||___________||___________||                                   \n",(33+posicionador), (40+posicionadorY));
 	respostaUser = getch();
 	//respostaUser = rand()%5 ;
 	
@@ -1205,10 +1236,10 @@ int main(int argc, char *argv[]) {
 	varreMatriz();
 	ganhaJogo();
 	mostraMatriz();
-	placar();
+	
 	
 		if(achouN == 0){
-			
+			placar();
 			printf("GAME OVER\n ");
 			system("pause");
 			textoMenu();
@@ -1218,6 +1249,7 @@ int main(int argc, char *argv[]) {
 		break;
 	}	
 		if(winGame == 1 ){
+			placar();
 			printf("Meus Parabéns, você conseguiu atingir o objetivo maximo !\n");
 			system("pause");
 			textoMenu();
@@ -1258,7 +1290,7 @@ int main(int argc, char *argv[]) {
 			randomMatriz();
 			break;
 		case 27:
-			
+				placar();
 			    salvaJogo();
 				system("cls");
 				textoMenu();
@@ -1277,31 +1309,32 @@ int main(int argc, char *argv[]) {
 	
 }
 	}
-	 int posicionador = 5 ;
+	int x, y;
+	
 		system("clear||cls");
 		printf("                                                                                           \n");
-	printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n",(0+posicionador), (40));
-	printf("\033[%d;%dH                          _______                                                         \n",(1+posicionador), (40));
-	printf("\033[%d;%dH     ||||  ||||    |||    |-------| ||    ||                                      \n",(2+posicionador), (40));
-	printf("\033[%d;%dH     || |||| ||   || ||      |||    ||____||                                         \n",(3+posicionador), (40));
-	printf("\033[%d;%dH     ||  ||  ||  || _ ||     |||    ||----||                                          \n",(4+posicionador), (40));
-	printf("\033[%d;%dH     ||      || ||     ||    |_|    ||    ||                                         \n",(5+posicionador), (40));
-	printf("\033[%d;%dH                    ||||||     ||             ||||||                          \n",(6+posicionador), (40));
-	printf("\033[%d;%dH                    ||        ||||   |||  ||| ||                               \n",(7+posicionador), (40));
-	printf("\033[%d;%dH                    || ||||  ||__||  || ||||| ||||||                             \n",(8+posicionador), (40));
-	printf("\033[%d;%dH                    ||||||| ||    || ||    || ||                                \n",(9+posicionador), (40));
-	printf("\033[%d;%dH                                              ||||||                            \n",(10+posicionador), (40));
-	printf("\033[%d;%dH                                                                                \n",(11+posicionador), (40));
-	printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n",(12+posicionador), (40));
+	printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==--=-=-\n",(5), (42));
+	printf("\033[%d;%dH*                          _______                            *\n",(1+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*     ||||  ||||    |||    |-------| ||    ||             -   *\n",(2+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*     || |||| ||   || ||      |||    ||____||           +     *\n",(3+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*     ||  ||  ||  || _ ||     |||    ||----||            -    *\n",(4+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*     ||      || ||     ||    |_|    ||    ||           +     *\n",(5+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*                    ||||||     ||             ||||||    -    *\n",(6+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*                    ||        ||||   |||  ||| ||       +     *\n",(7+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*                    || ||||  ||__||  || ||||| ||||||    -    *\n",(8+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH* 2+2=peixe          ||||||| ||    || ||    || ||       _     *\n",(9+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*                                              ||||||    +    *\n",(10+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*                                                        +    *\n",(11+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n",(17), (42));
 	printf("\033[%d;%dHJOGADOR ATUAL: %s\n",(13+posicionador), (40),playerAtual[0]);
 	printf("\033[%d;%dH                                                       Melhores jogadores       \n",(14+posicionador), (40));
 	printf("\033[%d;%dH                                                      NOME      PONTUACAO       \n",(15+posicionador), (40));
 	printf("\033[%d;%dH                                                    ||=====================||\n",(16+posicionador), (40));
-	printf("\033[%d;%dH                                                    ||%s        %d           \n",(17+posicionador), (40),player1[0],player1Score );
-	printf("\033[%d;%dH                                                    ||%s        %d           \n",(18+posicionador), (40),player2[0],player2Score);
-	printf("\033[%d;%dH1 - Nova Partida                                    ||%s        %d           \n",(19+posicionador), (40),player3[0],player3Score);
-	printf("\033[%d;%dH2 - Continuar Partida                               ||%s        %d           \n",(20+posicionador), (40),player4[0],player4Score);
-	printf("\033[%d;%dH3 - Configuracoes                                   ||========0============||\n",(21+posicionador), (40));
+	printf("\033[%d;%dH                                                    ||%s        %i         ||",(17+posicionador), (40),nomes2[0],vetor2[0]);
+	printf("\033[%d;%dH                                                    ||%s        %i         ||\n",(18+posicionador), (40),nomes2[1],vetor2[1]);
+	printf("\033[%d;%dH1 - Nova Partida                                    ||%s        %i         ||\n",(19+posicionador), (40),nomes2[2],vetor2[2]);
+	printf("\033[%d;%dH2 - Continuar Partida                               ||%s        %i         ||\n",(20+posicionador), (40),nomes2[3],vetor2[3]);
+	printf("\033[%d;%dH3 - Configuracoes                                   ||=====================||\n",(21+posicionador), (40));
 	printf("\033[%d;%dH4 - Ajuda                                                                    \n",(22+posicionador), (40));
 	printf("\033[%d;%dH5 - trocar de usuario                                                        \n",(23+posicionador), (40));
 	printf("\033[%d;%dH                                                                             ",(24+posicionador), (40));
@@ -1578,6 +1611,7 @@ int main(int argc, char *argv[]) {
 					strcpy(player1[2],"senha");
 					strcpy(player1[3],"codigo");
 					matrizS1[4][4] ;
+					playersRank[0] = 0 ;
 					system("cls");
 					textoCadastro();
 					
@@ -1610,6 +1644,7 @@ int main(int argc, char *argv[]) {
 					strcpy(player2[2],"senha");
 					strcpy(player2[3],"codigo");
 					matrizS2[4][4] ;
+					playersRank[1] = 0 ;
 					system("cls");
 					textoCadastro();
 					
@@ -1642,6 +1677,7 @@ int main(int argc, char *argv[]) {
 					strcpy(player3[2],"senha");
 					strcpy(player3[3],"codigo");
 					matrizS3[4][4];
+					playersRank[2] = 0 ;
 					system("cls");
 					textoCadastro();
 					
@@ -1674,6 +1710,7 @@ int main(int argc, char *argv[]) {
 					strcpy(player4[2],"senha");
 					strcpy(player4[3],"codigo");
 					matrizS4[4][4] ;
+					playersRank[3] = 0 ;
 					system("cls");
 					textoCadastro();
 					
