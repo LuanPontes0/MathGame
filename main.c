@@ -15,6 +15,7 @@ void gotoxy(int x, int y)
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main(int argc, char *argv[]) {
+	char respostaUserAsci;
 	char corDefault[50] = "\x1b[37m";
 	int p,q; 
 	 int posicionador = 5 ;
@@ -1816,7 +1817,7 @@ int main(int argc, char *argv[]) {
 	printf("\033[%d;%dH*                                              ||||||    +    *\n",(10+posicionador), (40+posicionadorY));
 	printf("\033[%d;%dH*                                                        +    *\n",(11+posicionador), (40+posicionadorY));
 	printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\x1b[37m\n",(17), (42));
-		    printf("\033[%d;%dH|      REGRAS DO JOGO: ENTÃO %s TUDO COMEÇA COM UMA     	 |",(18), (42+posicionadorY), nomeUsuario);
+		    printf("\033[%d;%dH|      REGRAS DO JOGO: ENTÃO \x1b[32m %s \x1b[37m TUDO COMEÇA COM UMA     	 |",(18), (42+posicionadorY),playerAtual[0]);
 			printf("\033[%d;%dH|  FORMA GEOMETRICA E DENTRO DELA TEMOS ALGUNS ESPEÇOS     |",(19), (42+posicionadorY));
 			printf("\033[%d;%dH|  VAZIOS E AO INICIAR O JOGO VOCê GANHA DOIS NUMEROS      |",(20), (42+posicionadorY));
 			printf("\033[%d;%dH|  2, 2 E AI COMEÇA JOGO, A REGRA É SEMPRE VOCÊ JUNTAR     |",(21), (42+posicionadorY));
@@ -1835,7 +1836,8 @@ int main(int argc, char *argv[]) {
 			printf("\033[%d;%dH|  ASSIM VOCÊ GANHA O JOGUINHO, LEGAL NÉ, VAMOS TENTAR?    |",(35), (42+posicionadorY));
 			printf("\033[%d;%dH|                                                          |",(36), (42+posicionadorY));
 			printf("\033[%d;%dH|__________________________________________________________|\n",(37), (42+posicionadorY));
-			system("pause");
+			printf("\033[%d;%dHPressione \x1b[32mEnter\x1b[37m Para Continuar",(39),(55+posicionadorY));
+			respostaUserAsci = getch();
 			textoMenu();
 			
 			
@@ -2326,50 +2328,58 @@ printf("\033[%d;%dH\x1b[31m--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-
 		textoMenu();
 		
 	}else if(respostaUserS == '3'){
+		posicionador = 10 ;
+		posicionadorY = 5;
 		char emailRecup[50],perguntaRecup[50];
 		system("cls");
-		printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
-		printf("|                   Opção selecionada: recuperação de senha                    |\n");
-		printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
-		printf("|                   para voltar ao menu digite 0\n\n");
-		printf("|                   Digite o e-mail cadastrado:");
+		printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n",(1+posicionador),(40+posicionadorY));
+		printf("\033[%d;%dH|                   Opção selecionada: \x1b[31mrecuperação de senha\x1b[37m                    |\n",(2+posicionador),(40+posicionadorY));
+		printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n",(3+posicionador),(40+posicionadorY));
+		printf("\033[%d;%dH                    para voltar ao menu digite \x1b[31m0\x1b[37m\n\n",(4+posicionador),(40+posicionadorY));
+		printf("\033[%d;%dH                    Digite o e-mail cadastrado:\x1b[32m",(5+posicionador),(40+posicionadorY));
 		scanf("%s", & emailRecup);
 		if(strcmp(emailRecup, "0") == 0){
 			textoInicial();
 		}
-		printf("|                   Digite a sua cor favorita :");
+		printf("\x1b[37m\033[%d;%dH                    Digite a sua cor favorita\x1b[32m :",(6+posicionador),(40+posicionadorY));
 		scanf("%s", & perguntaRecup);
 		
 		
 		if(strcmp(player1[3], perguntaRecup) == 0 &&  strcmp(player1[1], emailRecup) == 0  ){
-			printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
-			printf("                    Sua senha é :%s\n\n",player1[2]);
-				printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
-			system("pause");
+			printf("\033[%d;%dH\x1b[37m--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n",(7+posicionador),(40+posicionadorY));
+			printf("\033[%d;%dH                    Sua senha é :\x1b[32m%s\x1b[37m\n\n",(8+posicionador),(40+posicionadorY),player1[2]);
+				printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n",(9+posicionador),(40+posicionadorY));
+			printf("\033[%d;%dHPressione \x1b[32mEnter\x1b[37m Para Continuar",(11+posicionador),(62+posicionadorY));
+			respostaUserAsci = getch();
 			textoInicial();
+			
 		}else if(strcmp(player2[3], perguntaRecup) == 0 &&  strcmp(player2[1], emailRecup) == 0  ){
-			printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
-			printf("                    Sua senha é :%s\n\n",player2[2]);
-			printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
-			system("pause");
+			printf("\033[%d;%dH\x1b[37m--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n",(7+posicionador),(40+posicionadorY));
+			printf("\033[%d;%dH                    Sua senha é :\x1b[32m%s\x1b[37m\n\n",(8+posicionador),(40+posicionadorY),player2[2]);
+				printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n",(9+posicionador),(40+posicionadorY));
+			printf("\033[%d;%dHPressione \x1b[32mEnter\x1b[37m Para Continuar",(11+posicionador),(62+posicionadorY));
+			respostaUserAsci = getch();
 			textoInicial();
 		}else if(strcmp(player3[3], perguntaRecup) == 0 &&  strcmp(player3[1], emailRecup) == 0  ){
-				printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
-			printf("                    Sua senha é :%s\n\n",player3[2]) ;
-				printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
-			system("pause");
+				printf("\033[%d;%dH\x1b[37m--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n",(7+posicionador),(40+posicionadorY));
+			printf("\033[%d;%dH                    Sua senha é :\x1b[32m%s\x1b[37m\n\n",(8+posicionador),(40+posicionadorY),player3[2]);
+				printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n",(9+posicionador),(40+posicionadorY));
+			printf("\033[%d;%dHPressione \x1b[32mEnter\x1b[37m Para Continuar",(11+posicionador),(62+posicionadorY));
+			respostaUserAsci = getch();
 			textoInicial();
 		}else if(strcmp(player4[3], perguntaRecup) == 0 &&  strcmp(player4[1], emailRecup) == 0  ){
-			printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
-			printf("                    Sua senha é :%s\n\n",player4[2]);
-			printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
-			system("pause");
+			printf("\033[%d;%dH\x1b[37m--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n",(7+posicionador),(40+posicionadorY));
+			printf("\033[%d;%dH                    Sua senha é :\x1b[32m%s\x1b[37m\n\n",(8+posicionador),(40+posicionadorY),player4[2]);
+				printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n",(9+posicionador),(40+posicionadorY));
+			printf("\033[%d;%dHPressione \x1b[32mEnter\x1b[37m Para Continuar",(11+posicionador),(62+posicionadorY));
+			respostaUserAsci = getch();
 			textoInicial();
 		}else{
-			printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
-			printf("|                    Email ou codigo invalidos!|\n\n");
-			printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
-			system("pause");
+			printf("\033[%d;%dH\x1b[37m--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n",(7+posicionador),(40+posicionadorY));
+			printf("\033[%d;%dH                     Email ou codigo \x1b[31minvalidos!\x1b[37m\n\n",(8+posicionador),(40+posicionadorY));
+			printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n",(9+posicionador),(40+posicionadorY));
+			printf("\033[%d;%dHPressione \x1b[32mEnter\x1b[37m Para Continuar",(11+posicionador),(62+posicionadorY));
+			respostaUserAsci = getch();
 			textoInicial();
 		}
 		
