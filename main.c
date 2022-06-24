@@ -15,12 +15,14 @@ void gotoxy(int x, int y)
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main(int argc, char *argv[]) {
+	char corDefault[50] = "\x1b[37m";
+	int p,q; 
 	 int posicionador = 5 ;
 	 int posicionadorY = 5 ;
 	char nomes2[50][50] = {"nome","nome","nome","nome"};
 	int vetor2[4] = {0,0,0,0};
 	char playersNome[30][30]  = {""}; 	
-	system("color 71");
+	
 	char respostaUserS;
 	setlocale(LC_ALL, "Portuguese");
 	int matrizS1[4][4];
@@ -47,6 +49,7 @@ int main(int argc, char *argv[]) {
 
 	
 	void textoInicial(){
+	
 		int playersRank[4] = {0,0,0,0};
 		void textoMenu()
 	{
@@ -201,7 +204,13 @@ int main(int argc, char *argv[]) {
 			}
 		}
 	}
-		
+			void zeraMatriz(){
+			for(p = 0; p<4; p++){
+				for(q = 0; q<4;q++){
+					matriz[p][q] = 0 ;
+				}
+			}
+		}
 	
 	
 		
@@ -215,28 +224,422 @@ int main(int argc, char *argv[]) {
 	void mostraMatriz(){
 		
 		char corRed[50] = "\x1b[31m";
-		char corDefault[50] = "\x1b[1m\x1b[47m\x1b[34m";
-		char colorir0_0[50] = "\x1b[1m\x1b[100m\x1b[32m";
-		char colorir0_1[50] = "\x1b[1m\x1b[40m\x1b[33m";
-		char colorir0_2[50] = "\x1b[1m\x1b[40m\x1b[35m";
-		char colorir0_3[50] = "\x1b[1m\x1b[40m\x1b[36m";
-		char colorir1_0[50] = "\x1b[1m\x1b[40m\x1b[33m";
-		char colorir1_1[50] = "\x1b[1m\x1b[40m\x1b[35m";
-		char colorir1_2[50] = "\x1b[1m\x1b[40m\x1b[36m";
-		char colorir1_3[50] = "\x1b[1m\x1b[40m\x1b[32m";
-		char colorir2_0[50] = "\x1b[1m\x1b[40m\x1b[33m";
-		char colorir2_1[50] = "\x1b[1m\x1b[40m\x1b[35m";
-		char colorir2_2[50] = "\x1b[1m\x1b[40m\x1b[36m";
-		char colorir2_3[50] = "\x1b[1m\x1b[40m\x1b[33m";
-		char colorir3_0[50] = "\x1b[1m\x1b[40m\x1b[38m";
-		char colorir3_1[50] = "\x1b[1m\x1b[40m\x1b[39m";
-		char colorir3_2[50] = "\x1b[1m\x1b[40m\x1b[32m";
-		char colorir3_3[50] = "\x1b[1m\x1b[40m\x1b[33m";
+		
+		char colorir0_0[50] = "\x1b[31m";
+		char colorir0_1[50] = "";
+		char colorir0_2[50] = "\x1b[1m\x1b[30m";
+		char colorir0_3[50] = "\x1b[34m";
+		char colorir1_0[50] = "\x1b[31m";
+		char colorir1_1[50] = "\x1b[31m";
+		char colorir1_2[50] = "\x1b[31m";
+		char colorir1_3[50] = "\x1b[31m";
+		char colorir2_0[50] = "\x1b[31m";
+		char colorir2_1[50] = "\x1b[31m";
+		char colorir2_2[50] = "\x1b[31m";
+		char colorir2_3[50] = "\x1b[31m";
+		char colorir3_0[50] = "\x1b[31m";
+		char colorir3_1[50] = "\x1b[31m";
+		char colorir3_2[50] = "\x1b[31m";
+		char colorir3_3[50] = "\x1b[31m";
 		
 		if(matriz[0][0] == 0){
-			strcpy(colorir0_0,"\x1b[1m\x1b[100m\x1b[32m");
+			strcpy(colorir0_0,"\x1b[37m");
 		}else if (matriz[0][0] == 2){
-			strcpy(colorir0_0,"\x1b[1m\x1b[40m\x1b[31m");
+			strcpy(colorir0_0,"\x1b[31m");
+		}else if (matriz[0][0] == 4){
+			strcpy(colorir0_0,"\x1b[34m");
+		}else if (matriz[0][0] == 8){
+			strcpy(colorir0_0,"\x1b[32m");
+		}else if (matriz[0][0] == 16){
+			strcpy(colorir0_0,"\x1b[33m");
+		}else if (matriz[0][0] == 32){
+			strcpy(colorir0_0,"\x1b[35m");
+		}else if (matriz[0][0] == 64){
+			strcpy(colorir0_0,"\x1b[92m");
+		}else if (matriz[0][0] == 128){
+			strcpy(colorir0_0,"\x1b[36m");
+		}else if (matriz[0][0] == 256){
+			strcpy(colorir0_0,"\x1b[94m");
+		}else if (matriz[0][0] == 512){
+			strcpy(colorir0_0,"\x1b[95m");
+		}else if (matriz[0][0] == 1024){
+			strcpy(colorir0_0,"\x1b[96m");
+		}else if (matriz[0][0] == 2048){
+			strcpy(colorir0_0,"\x1b[91m");
+		}
+		if(matriz[0][1] == 0){
+			strcpy(colorir0_1,"\x1b[37m");
+		}else if (matriz[0][1] == 2){
+			strcpy(colorir0_1,"\x1b[31m");
+		}else if (matriz[0][1] == 4){
+			strcpy(colorir0_1,"\x1b[34m");
+		}else if (matriz[0][1] == 8){
+			strcpy(colorir0_1,"\x1b[32m");
+		}else if (matriz[0][1] == 16){
+			strcpy(colorir0_1,"\x1b[33m");
+		}else if (matriz[0][1] == 32){
+			strcpy(colorir0_1,"\x1b[35m");
+		}else if (matriz[0][1] == 64){
+			strcpy(colorir0_1,"\x1b[92m");
+		}else if (matriz[0][1] == 128){
+			strcpy(colorir0_1,"\x1b[36m");
+		}else if (matriz[0][1] == 256){
+			strcpy(colorir0_1,"\x1b[94m");
+		}else if (matriz[0][1] == 512){
+			strcpy(colorir0_1,"\x1b[95m");
+		}else if (matriz[0][1] == 1024){
+			strcpy(colorir0_1,"\x1b[96m");
+		}else if (matriz[0][1] == 2048){
+			strcpy(colorir0_1,"\x1b[91m");
+		}
+		if(matriz[0][2] == 0){
+			strcpy(colorir0_2,"\x1b[37m");
+		}else if (matriz[0][2] == 2){
+			strcpy(colorir0_2,"\x1b[31m");
+		}else if (matriz[0][2] == 4){
+			strcpy(colorir0_2,"\x1b[34m");
+		}else if (matriz[0][2] == 8){
+			strcpy(colorir0_2,"\x1b[32m");
+		}else if (matriz[0][2] == 16){
+			strcpy(colorir0_2,"\x1b[33m");
+		}else if (matriz[0][2] == 32){
+			strcpy(colorir0_2,"\x1b[35m");
+		}else if (matriz[0][2] == 64){
+			strcpy(colorir0_2,"\x1b[92m");
+		}else if (matriz[0][2] == 128){
+			strcpy(colorir0_2,"\x1b[36m");
+		}else if (matriz[0][2] == 256){
+			strcpy(colorir0_2,"\x1b[94m");
+		}else if (matriz[0][2] == 512){
+			strcpy(colorir0_2,"\x1b[95m");
+		}else if (matriz[0][2] == 1024){
+			strcpy(colorir0_2,"\x1b[96m");
+		}else if (matriz[0][2] == 2048){
+			strcpy(colorir0_2,"\x1b[91m");
+		}
+		if(matriz[0][3] == 0){
+			strcpy(colorir0_3,"\x1b[37m");
+		}else if (matriz[0][3] == 2){
+			strcpy(colorir0_3,"\x1b[31m");
+		}else if (matriz[0][3] == 4){
+			strcpy(colorir0_3,"\x1b[34m");
+		}else if (matriz[0][3] == 8){
+			strcpy(colorir0_3,"\x1b[32m");
+		}else if (matriz[0][3] == 16){
+			strcpy(colorir0_3,"\x1b[33m");
+		}else if (matriz[0][3] == 32){
+			strcpy(colorir0_3,"\x1b[35m");
+		}else if (matriz[0][3] == 64){
+			strcpy(colorir0_3,"\x1b[92m");
+		}else if (matriz[0][3] == 128){
+			strcpy(colorir0_3,"\x1b[36m");
+		}else if (matriz[0][3] == 256){
+			strcpy(colorir0_3,"\x1b[94m");
+		}else if (matriz[0][3] == 512){
+			strcpy(colorir0_3,"\x1b[95m");
+		}else if (matriz[0][3] == 1024){
+			strcpy(colorir0_3,"\x1b[96m");
+		}else if (matriz[0][3] == 2048){
+			strcpy(colorir0_3,"\x1b[91m");
+		}
+		if(matriz[1][0] == 0){
+			strcpy(colorir1_0,"\x1b[37m");
+		}else if (matriz[1][0] == 2){
+			strcpy(colorir1_0,"\x1b[31m");
+		}else if (matriz[1][0] == 4){
+			strcpy(colorir1_0,"\x1b[34m");
+		}else if (matriz[1][0] == 8){
+			strcpy(colorir1_0,"\x1b[32m");
+		}else if (matriz[1][0] == 16){
+			strcpy(colorir1_0,"\x1b[33m");
+		}else if (matriz[1][0] == 32){
+			strcpy(colorir1_0,"\x1b[35m");
+		}else if (matriz[1][0] == 64){
+			strcpy(colorir1_0,"\x1b[92m");
+		}else if (matriz[1][0] == 128){
+			strcpy(colorir1_0,"\x1b[36m");
+		}else if (matriz[1][0] == 256){
+			strcpy(colorir1_0,"\x1b[94m");
+		}else if (matriz[1][0] == 512){
+			strcpy(colorir1_0,"\x1b[95m");
+		}else if (matriz[1][0] == 1024){
+			strcpy(colorir1_0,"\x1b[96m");
+		}else if (matriz[1][0] == 2048){
+			strcpy(colorir1_0,"\x1b[91m");
+		}
+		if(matriz[1][1] == 0){
+			strcpy(colorir1_1,"\x1b[37m");
+		}else if (matriz[1][1] == 2){
+			strcpy(colorir1_1,"\x1b[31m");
+		}else if (matriz[1][1] == 4){
+			strcpy(colorir1_1,"\x1b[34m");
+		}else if (matriz[1][1] == 8){
+			strcpy(colorir1_1,"\x1b[32m");
+		}else if (matriz[1][1] == 16){
+			strcpy(colorir1_1,"\x1b[33m");
+		}else if (matriz[1][1] == 32){
+			strcpy(colorir1_1,"\x1b[35m");
+		}else if (matriz[1][1] == 64){
+			strcpy(colorir1_1,"\x1b[92m");
+		}else if (matriz[1][1] == 128){
+			strcpy(colorir1_1,"\x1b[36m");
+		}else if (matriz[1][1] == 256){
+			strcpy(colorir1_1,"\x1b[94m");
+		}else if (matriz[1][1] == 512){
+			strcpy(colorir1_1,"\x1b[95m");
+		}else if (matriz[1][1] == 1024){
+			strcpy(colorir1_1,"\x1b[96m");
+		}else if (matriz[1][1] == 2048){
+			strcpy(colorir1_1,"\x1b[91m");
+		}
+		if(matriz[1][2] == 0){
+			strcpy(colorir1_2,"\x1b[37m");
+		}else if (matriz[1][2] == 2){
+			strcpy(colorir1_2,"\x1b[31m");
+		}else if (matriz[1][2] == 4){
+			strcpy(colorir1_2,"\x1b[34m");
+		}else if (matriz[1][2] == 8){
+			strcpy(colorir1_2,"\x1b[32m");
+		}else if (matriz[1][2] == 16){
+			strcpy(colorir1_2,"\x1b[33m");
+		}else if (matriz[1][2] == 32){
+			strcpy(colorir1_2,"\x1b[35m");
+		}else if (matriz[1][2] == 64){
+			strcpy(colorir1_2,"\x1b[92m");
+		}else if (matriz[1][2] == 128){
+			strcpy(colorir1_2,"\x1b[36m");
+		}else if (matriz[1][2] == 256){
+			strcpy(colorir1_2,"\x1b[94m");
+		}else if (matriz[1][2] == 512){
+			strcpy(colorir1_2,"\x1b[95m");
+		}else if (matriz[1][2] == 1024){
+			strcpy(colorir1_2,"\x1b[96m");
+		}else if (matriz[1][2] == 2048){
+			strcpy(colorir1_2,"\x1b[91m");
+		}
+		if(matriz[1][3] == 0){
+			strcpy(colorir1_3,"\x1b[37m");
+		}else if (matriz[1][3] == 2){
+			strcpy(colorir1_3,"\x1b[31m");
+		}else if (matriz[1][3] == 4){
+			strcpy(colorir1_3,"\x1b[34m");
+		}else if (matriz[1][3] == 8){
+			strcpy(colorir1_3,"\x1b[32m");
+		}else if (matriz[1][3] == 16){
+			strcpy(colorir1_3,"\x1b[33m");
+		}else if (matriz[1][3] == 32){
+			strcpy(colorir1_3,"\x1b[35m");
+		}else if (matriz[1][3] == 64){
+			strcpy(colorir1_3,"\x1b[92m");
+		}else if (matriz[1][3] == 128){
+			strcpy(colorir1_3,"\x1b[36m");
+		}else if (matriz[1][3] == 256){
+			strcpy(colorir1_3,"\x1b[94m");
+		}else if (matriz[1][3] == 512){
+			strcpy(colorir1_3,"\x1b[95m");
+		}else if (matriz[1][3] == 1024){
+			strcpy(colorir1_3,"\x1b[96m");
+		}else if (matriz[1][3] == 2048){
+			strcpy(colorir1_3,"\x1b[91m");
+	}
+		if(matriz[2][0] == 0){
+			strcpy(colorir2_0,"\x1b[37m");
+		}else if (matriz[2][0] == 2){
+			strcpy(colorir2_0,"\x1b[31m");
+		}else if (matriz[2][0] == 4){
+			strcpy(colorir2_0,"\x1b[34m");
+		}else if (matriz[2][0] == 8){
+			strcpy(colorir2_0,"\x1b[32m");
+		}else if (matriz[2][0] == 16){
+			strcpy(colorir2_0,"\x1b[33m");
+		}else if (matriz[2][0] == 32){
+			strcpy(colorir2_0,"\x1b[35m");
+		}else if (matriz[2][0] == 64){
+			strcpy(colorir2_0,"\x1b[92m");
+		}else if (matriz[2][0] == 128){
+			strcpy(colorir2_0,"\x1b[36m");
+		}else if (matriz[2][0] == 256){
+			strcpy(colorir2_0,"\x1b[94m");
+		}else if (matriz[2][0] == 512){
+			strcpy(colorir2_0,"\x1b[95m");
+		}else if (matriz[2][0] == 1024){
+			strcpy(colorir2_0,"\x1b[96m");
+		}else if (matriz[2][0] == 2048){
+			strcpy(colorir2_0,"\x1b[91m");
+		}
+		if(matriz[2][1] == 0){
+			strcpy(colorir2_1,"\x1b[37m");
+		}else if (matriz[2][1] == 2){
+			strcpy(colorir2_1,"\x1b[31m");
+		}else if (matriz[2][1] == 4){
+			strcpy(colorir2_1,"\x1b[34m");
+		}else if (matriz[2][1] == 8){
+			strcpy(colorir2_1,"\x1b[32m");
+		}else if (matriz[2][1] == 16){
+			strcpy(colorir2_1,"\x1b[33m");
+		}else if (matriz[2][1] == 32){
+			strcpy(colorir2_1,"\x1b[35m");
+		}else if (matriz[2][1] == 64){
+			strcpy(colorir2_1,"\x1b[92m");
+		}else if (matriz[2][1] == 128){
+			strcpy(colorir2_1,"\x1b[36m");
+		}else if (matriz[2][1] == 256){
+			strcpy(colorir2_1,"\x1b[94m");
+		}else if (matriz[2][1] == 512){
+			strcpy(colorir2_1,"\x1b[95m");
+		}else if (matriz[2][1] == 1024){
+			strcpy(colorir2_1,"\x1b[96m");
+		}else if (matriz[2][1] == 2048){
+			strcpy(colorir2_1,"\x1b[91m");
+	}
+		if(matriz[2][2] == 0){
+			strcpy(colorir2_2,"\x1b[37m");
+		}else if (matriz[2][2] == 2){
+			strcpy(colorir2_2,"\x1b[31m");
+		}else if (matriz[2][2] == 4){
+			strcpy(colorir2_2,"\x1b[34m");
+		}else if (matriz[2][2] == 8){
+			strcpy(colorir2_2,"\x1b[32m");
+		}else if (matriz[2][2] == 16){
+			strcpy(colorir2_2,"\x1b[33m");
+		}else if (matriz[2][2] == 32){
+			strcpy(colorir2_2,"\x1b[35m");
+		}else if (matriz[2][2] == 64){
+			strcpy(colorir2_2,"\x1b[92m");
+		}else if (matriz[2][2] == 128){
+			strcpy(colorir2_2,"\x1b[36m");
+		}else if (matriz[2][2] == 256){
+			strcpy(colorir2_2,"\x1b[94m");
+		}else if (matriz[2][2] == 512){
+			strcpy(colorir2_2,"\x1b[95m");
+		}else if (matriz[2][2] == 1024){
+			strcpy(colorir2_2,"\x1b[96m");
+		}else if (matriz[2][2] == 2048){
+			strcpy(colorir2_2,"\x1b[91m");
+		}
+		if(matriz[2][3] == 0){
+			strcpy(colorir2_3,"\x1b[37m");
+		}else if (matriz[2][3] == 2){
+			strcpy(colorir2_3,"\x1b[31m");
+		}else if (matriz[2][3] == 4){
+			strcpy(colorir2_3,"\x1b[34m");
+		}else if (matriz[2][3] == 8){
+			strcpy(colorir2_3,"\x1b[32m");
+		}else if (matriz[2][3] == 16){
+			strcpy(colorir2_3,"\x1b[33m");
+		}else if (matriz[2][3] == 32){
+			strcpy(colorir2_3,"\x1b[35m");
+		}else if (matriz[2][3] == 64){
+			strcpy(colorir2_3,"\x1b[92m");
+		}else if (matriz[2][3] == 128){
+			strcpy(colorir2_3,"\x1b[36m");
+		}else if (matriz[2][3] == 256){
+			strcpy(colorir2_3,"\x1b[94m");
+		}else if (matriz[2][3] == 512){
+			strcpy(colorir2_3,"\x1b[95m");
+		}else if (matriz[2][3] == 1024){
+			strcpy(colorir2_3,"\x1b[96m");
+		}else if (matriz[2][3] == 2048){
+			strcpy(colorir2_3,"\x1b[91m");
+		}if(matriz[3][0] == 0){
+			strcpy(colorir3_0,"\x1b[37m");
+		}else if (matriz[3][0] == 2){
+			strcpy(colorir3_0,"\x1b[31m");
+		}else if (matriz[3][0] == 4){
+			strcpy(colorir3_0,"\x1b[34m");
+		}else if (matriz[3][0] == 8){
+			strcpy(colorir3_0,"\x1b[32m");
+		}else if (matriz[3][0] == 16){
+			strcpy(colorir3_0,"\x1b[33m");
+		}else if (matriz[3][0] == 32){
+			strcpy(colorir3_0,"\x1b[35m");
+		}else if (matriz[3][0] == 64){
+			strcpy(colorir3_0,"\x1b[92m");
+		}else if (matriz[3][0] == 128){
+			strcpy(colorir3_0,"\x1b[36m");
+		}else if (matriz[3][0] == 256){
+			strcpy(colorir3_0,"\x1b[94m");
+		}else if (matriz[3][0] == 512){
+			strcpy(colorir3_0,"\x1b[95m");
+		}else if (matriz[3][0] == 1024){
+			strcpy(colorir3_0,"\x1b[96m");
+		}else if (matriz[3][0] == 2048){
+			strcpy(colorir3_0,"\x1b[91m");
+		}
+		if(matriz[3][1] == 0){
+			strcpy(colorir3_1,"\x1b[37m");
+		}else if (matriz[3][1] == 2){
+			strcpy(colorir3_1,"\x1b[31m");
+		}else if (matriz[3][1] == 4){
+			strcpy(colorir3_1,"\x1b[34m");
+		}else if (matriz[3][1] == 8){
+			strcpy(colorir3_1,"\x1b[32m");
+		}else if (matriz[3][1] == 16){
+			strcpy(colorir3_1,"\x1b[33m");
+		}else if (matriz[3][1] == 32){
+			strcpy(colorir3_1,"\x1b[35m");
+		}else if (matriz[3][1] == 64){
+			strcpy(colorir3_1,"\x1b[92m");
+		}else if (matriz[3][1] == 128){
+			strcpy(colorir3_1,"\x1b[36m");
+		}else if (matriz[3][1] == 256){
+			strcpy(colorir3_1,"\x1b[94m");
+		}else if (matriz[3][1] == 512){
+			strcpy(colorir3_1,"\x1b[95m");
+		}else if (matriz[3][1] == 1024){
+			strcpy(colorir3_1,"\x1b[96m");
+		}else if (matriz[3][1] == 2048){
+			strcpy(colorir3_1,"\x1b[91m");
+		}
+		if(matriz[3][2] == 0){
+			strcpy(colorir3_2,"\x1b[37m");
+		}else if (matriz[3][2] == 2){
+			strcpy(colorir3_2,"\x1b[31m");
+		}else if (matriz[3][2] == 4){
+			strcpy(colorir3_2,"\x1b[34m");
+		}else if (matriz[3][2] == 8){
+			strcpy(colorir3_2,"\x1b[32m");
+		}else if (matriz[3][2] == 16){
+			strcpy(colorir3_2,"\x1b[33m");
+		}else if (matriz[3][2] == 32){
+			strcpy(colorir3_2,"\x1b[35m");
+		}else if (matriz[3][2] == 64){
+			strcpy(colorir3_2,"\x1b[92m");
+		}else if (matriz[3][2] == 128){
+			strcpy(colorir3_2,"\x1b[36m");
+		}else if (matriz[3][2] == 256){
+			strcpy(colorir3_2,"\x1b[94m");
+		}else if (matriz[3][2] == 512){
+			strcpy(colorir3_2,"\x1b[95m");
+		}else if (matriz[3][2] == 1024){
+			strcpy(colorir3_2,"\x1b[96m");
+		}else if (matriz[3][2] == 2048){
+			strcpy(colorir3_2,"\x1b[91m");
+	}
+	if(matriz[3][3] == 0){
+			strcpy(colorir3_3,"\x1b[37m");
+		}else if (matriz[3][3] == 2){
+			strcpy(colorir3_3,"\x1b[31m");
+		}else if (matriz[3][3] == 4){
+			strcpy(colorir3_3,"\x1b[34m");
+		}else if (matriz[3][3] == 8){
+			strcpy(colorir3_3,"\x1b[32m");
+		}else if (matriz[3][3] == 16){
+			strcpy(colorir3_3,"\x1b[33m");
+		}else if (matriz[3][3] == 32){
+			strcpy(colorir3_3,"\x1b[35m");
+		}else if (matriz[3][3] == 64){
+			strcpy(colorir3_3,"\x1b[92m");
+		}else if (matriz[3][3] == 128){
+			strcpy(colorir3_3,"\x1b[36m");
+		}else if (matriz[3][3] == 256){
+			strcpy(colorir3_3,"\x1b[94m");
+		}else if (matriz[3][3] == 512){
+			strcpy(colorir3_3,"\x1b[95m");
+		}else if (matriz[3][3] == 1024){
+			strcpy(colorir3_3,"\x1b[96m");
+		}else if (matriz[3][3] == 2048){
+			strcpy(colorir3_3,"\x1b[91m");
 		}
 		
 		/*for(linha = 0;linha<4;linha++){
@@ -250,25 +653,25 @@ int main(int argc, char *argv[]) {
 	printf("Pontuação Atual: %d ",pontuacao);*/
 	system("cls");
 		printf("                                                                                \n");
-	printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==--=-=-\n",(5), (42));
+	printf("\033[%d;%dH\x1b[31m--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==--=-=-\n",(5), (42));
 	printf("\033[%d;%dH*                          _______                            *\n",(1+posicionador), (40+posicionadorY));
 	printf("\033[%d;%dH*     ||||  ||||    |||    |-------| ||    ||             -   *\n",(2+posicionador), (40+posicionadorY));
 	printf("\033[%d;%dH*     || |||| ||   || ||      |||    ||____||           +     *\n",(3+posicionador), (40+posicionadorY));
-	printf("\033[%d;%dH*     ||  ||  ||  || _ ||     |||    ||----||            -    *\n",(4+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*\x1b[91m     ||  ||  ||  || _ ||     |||    ||----||            -    *\n",(4+posicionador), (40+posicionadorY));
 	printf("\033[%d;%dH*     ||      || ||     ||    |_|    ||    ||           +     *\n",(5+posicionador), (40+posicionadorY));
-	printf("\033[%d;%dH*                    ||||||     ||             ||||||    -    *\n",(6+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*\x1b[94m                    ||||||     ||             ||||||    -    *\n",(6+posicionador), (40+posicionadorY));
 	printf("\033[%d;%dH*                    ||        ||||   |||  ||| ||       +     *\n",(7+posicionador), (40+posicionadorY));
 	printf("\033[%d;%dH*                    || ||||  ||__||  || ||||| ||||||    -    *\n",(8+posicionador), (40+posicionadorY));
-	printf("\033[%d;%dH* 2+2=peixe          ||||||| ||    || ||    || ||       _     *\n",(9+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*\x1b[32m 2+2=peixe\x1b[34m          ||||||| ||    || ||    || ||       _     *\n",(9+posicionador), (40+posicionadorY));
 	printf("\033[%d;%dH*                                              ||||||    +    *\n",(10+posicionador), (40+posicionadorY));
 	printf("\033[%d;%dH*                                                        +    *\n",(11+posicionador), (40+posicionadorY));
-	printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n",(17), (42));
-	printf("\033[%d;%dH___________________________________________________                                                                   \n",(13+posicionador), (40+posicionadorY));
-	printf("\033[%d;%dH||          ||           ||           ||           ||       JOGADOR : %s             \n",(14+posicionador), (40+posicionadorY),playerAtual[0] );
-	printf("\033[%d;%dH||          ||           ||           ||           ||       PONTUACAO: %d             \n",(15+posicionador), (40+posicionadorY), score);
+	printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\x1b[37m\n",(17), (42));
+	printf("\033[%d;%dH%s___________________________________________________                                                                   \n",(13+posicionador), (40+posicionadorY),corDefault);
+	printf("\033[%d;%dH||          ||           ||           ||           ||       JOGADOR :\x1b[92m %s %s             \n",(14+posicionador), (40+posicionadorY),playerAtual[0],corDefault );
+	printf("\033[%d;%dH||          ||           ||           ||           ||       PONTUACAO:\x1b[35m %d %s             \n",(15+posicionador), (40+posicionadorY), score,corDefault);
 	printf("\033[%d;%dH||   %s %d %s          %s %d %s           %s %d %s          %s %d %s                                         \n",(16+posicionador), (40+posicionadorY),colorir0_0,matriz[0][0],corDefault,colorir0_1,matriz[0][1],corDefault,colorir0_2,matriz[0][2],corDefault,colorir0_3,matriz[0][3],corDefault);
-	printf("\033[%d;%dH||          ||           ||           ||           ||       movimentos:%d                           \n",(17+posicionador), (40+posicionadorY),pontuacao);
-	printf("\033[%d;%dH||__________||___________||___________||___________||       1: começar novamente                            \n",(18+posicionador), (40+posicionadorY));	
+	printf("\033[%d;%dH||          ||           ||           ||           ||       movimentos:\x1b[33m %d %s                           \n",(17+posicionador), (40+posicionadorY),pontuacao,corDefault);
+	printf("\033[%d;%dH||__________||___________||___________||___________||       \x1b[31mR%s : começar novamente                            \n",(18+posicionador), (40+posicionadorY),corDefault);	
 	printf("\033[%d;%dH||          ||           ||           ||           ||       ESC: voltar para o menu principal\n",(19+posicionador), (40+posicionadorY));
 	printf("\033[%d;%dH||          ||           ||           ||           ||                                   \n",(20+posicionador), (40+posicionadorY));
 	printf("\033[%d;%dH||   %s %d %s          %s %d %s          %s %d %s          %s %d %s                                       \n",(21+posicionador), (40+posicionadorY),colorir1_0,matriz[1][0],corDefault,colorir1_1,matriz[1][1],corDefault,colorir1_2,matriz[1][2],corDefault,colorir1_3,matriz[1][3],corDefault);
@@ -1296,6 +1699,9 @@ int main(int argc, char *argv[]) {
 				textoMenu();
 				mostrouGameOver = 1 ;
 				break;
+		case 114:
+				zeraMatriz();
+				break;
 				
 		
 			
@@ -1313,30 +1719,30 @@ int main(int argc, char *argv[]) {
 	
 		system("clear||cls");
 		printf("                                                                                           \n");
-	printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==--=-=-\n",(5), (42));
+		printf("\033[%d;%dH\x1b[31m--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==--=-=-\n",(5), (42));
 	printf("\033[%d;%dH*                          _______                            *\n",(1+posicionador), (40+posicionadorY));
 	printf("\033[%d;%dH*     ||||  ||||    |||    |-------| ||    ||             -   *\n",(2+posicionador), (40+posicionadorY));
 	printf("\033[%d;%dH*     || |||| ||   || ||      |||    ||____||           +     *\n",(3+posicionador), (40+posicionadorY));
-	printf("\033[%d;%dH*     ||  ||  ||  || _ ||     |||    ||----||            -    *\n",(4+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*\x1b[91m     ||  ||  ||  || _ ||     |||    ||----||            -    *\n",(4+posicionador), (40+posicionadorY));
 	printf("\033[%d;%dH*     ||      || ||     ||    |_|    ||    ||           +     *\n",(5+posicionador), (40+posicionadorY));
-	printf("\033[%d;%dH*                    ||||||     ||             ||||||    -    *\n",(6+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*\x1b[94m                    ||||||     ||             ||||||    -    *\n",(6+posicionador), (40+posicionadorY));
 	printf("\033[%d;%dH*                    ||        ||||   |||  ||| ||       +     *\n",(7+posicionador), (40+posicionadorY));
 	printf("\033[%d;%dH*                    || ||||  ||__||  || ||||| ||||||    -    *\n",(8+posicionador), (40+posicionadorY));
-	printf("\033[%d;%dH* 2+2=peixe          ||||||| ||    || ||    || ||       _     *\n",(9+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*\x1b[32m 2+2=peixe\x1b[34m          ||||||| ||    || ||    || ||       _     *\n",(9+posicionador), (40+posicionadorY));
 	printf("\033[%d;%dH*                                              ||||||    +    *\n",(10+posicionador), (40+posicionadorY));
 	printf("\033[%d;%dH*                                                        +    *\n",(11+posicionador), (40+posicionadorY));
-	printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n",(17), (42));
-	printf("\033[%d;%dHJOGADOR ATUAL: %s\n",(13+posicionador), (40),playerAtual[0]);
+	printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\x1b[37m\n",(17), (42));
+	printf("\033[%d;%dHJOGADOR ATUAL:\x1b[92m %s\n \x1b[37m",(13+posicionador), (40),playerAtual[0]);
 	printf("\033[%d;%dH                                                       Melhores jogadores       \n",(14+posicionador), (40));
 	printf("\033[%d;%dH                                                      NOME      PONTUACAO       \n",(15+posicionador), (40));
 	printf("\033[%d;%dH                                                    ||=====================||\n",(16+posicionador), (40));
 	printf("\033[%d;%dH                                                    ||%s        %i         ||",(17+posicionador), (40),nomes2[0],vetor2[0]);
 	printf("\033[%d;%dH                                                    ||%s        %i         ||\n",(18+posicionador), (40),nomes2[1],vetor2[1]);
-	printf("\033[%d;%dH1 - Nova Partida                                    ||%s        %i         ||\n",(19+posicionador), (40),nomes2[2],vetor2[2]);
-	printf("\033[%d;%dH2 - Continuar Partida                               ||%s        %i         ||\n",(20+posicionador), (40),nomes2[3],vetor2[3]);
-	printf("\033[%d;%dH3 - Configuracoes                                   ||=====================||\n",(21+posicionador), (40));
-	printf("\033[%d;%dH4 - Ajuda                                                                    \n",(22+posicionador), (40));
-	printf("\033[%d;%dH5 - trocar de usuario                                                        \n",(23+posicionador), (40));
+	printf("\033[%d;%dH\x1b[92m1 - Nova Partida \x1b[37m                                   ||%s        %i         ||\n",(19+posicionador), (40),nomes2[2],vetor2[2]);
+	printf("\033[%d;%dH\x1b[94m2 - Continuar Partida\x1b[37m                               ||%s        %i         ||\n",(20+posicionador), (40),nomes2[3],vetor2[3]);
+	printf("\033[%d;%dH\x1b[96m3 - Configuracoes   \x1b[37m                                ||=====================||\n",(21+posicionador), (40));
+	printf("\033[%d;%dH\x1b[93m4 - Ajuda\x1b[37m                                                                    \n",(22+posicionador), (40));
+	printf("\033[%d;%dH\x1b[91m5 - trocar de usuario\x1b[37m                                                        \n",(23+posicionador), (40));
 	printf("\033[%d;%dH                                                                             ",(24+posicionador), (40));
 	printf("\033[%d;%dH                                                                             ",(25+posicionador), (40));
 	scanf("%c",  & respostaUserS);
@@ -1352,65 +1758,83 @@ int main(int argc, char *argv[]) {
 			break; 	
 		case '3' :
 			system("clear||cls");	
-			printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
-			printf("                          _______                                                         \n");
-			printf("     ||||  ||||    |||    |-------| ||    ||                                      \n");
-			printf("     || |||| ||   || ||      |||    ||____||                                         \n");
-			printf("     ||  ||  ||  || _ ||     |||    ||----||                                          \n");
-			printf("     ||      || ||     ||    |_|    ||    ||                                         \n");
-			printf("                    ||||||     ||             ||||||                          \n");
-			printf("                    ||        ||||   |||  ||| ||                               \n");
-			printf("                    || ||||  ||__||  || ||||| ||||||                             \n");
-			printf("                    ||||||| ||    || ||    || ||                                \n");
-			printf("                                              ||||||                            \n");
-			printf("                                                                                \n");
-			printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
-			printf("configurações\n");
-			printf("Escolha uma das opções abaixo para prosseguir: \n");
-			printf("1 - Alterar o idioma do jogo\n");
-			printf("2 - Alterar a dificuldade do jogo\n");
-			printf("3 - Alterar a cor do tabuleiro\n");
-			printf("4 - Voltar para o menu principal\n");
+			printf("\033[%d;%dH\x1b[31m--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==--=-=-\n",(5), (42));
+	printf("\033[%d;%dH*                          _______                            *\n",(1+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*     ||||  ||||    |||    |-------| ||    ||             -   *\n",(2+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*     || |||| ||   || ||      |||    ||____||           +     *\n",(3+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*\x1b[91m     ||  ||  ||  || _ ||     |||    ||----||            -    *\n",(4+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*     ||      || ||     ||    |_|    ||    ||           +     *\n",(5+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*\x1b[94m                    ||||||     ||             ||||||    -    *\n",(6+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*                    ||        ||||   |||  ||| ||       +     *\n",(7+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*                    || ||||  ||__||  || ||||| ||||||    -    *\n",(8+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*\x1b[32m 2+2=peixe\x1b[34m          ||||||| ||    || ||    || ||       _     *\n",(9+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*                                              ||||||    +    *\n",(10+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*                                                        +    *\n",(11+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\x1b[37m\n",(17), (42));
+			printf("\033[%d;%dHconfigurações\n",(18), (70));
+			printf("\033[%d;%dHEscolha uma das opções abaixo para prosseguir: \n",(19), (42));
+			printf("\033[%d;%dH1 - Alterar a cor do tabuleiro\n",(20), (42));
+			printf("\033[%d;%dH0 - Voltar para o menu principal\n",(21), (42));
 			scanf("%d", & escolhaUser);
 			if(escolhaUser == 4){
+				textoMenu();
+			}if(escolhaUser == 1 ){
+				
+				printf("\033[%d;%dH01-\x1b[34mAzul\n\x1b[37m\033[%d;%dH02-\x1b[32mVerde\n\x1b[37m\033[%d;%dH03-\x1b[37mPadrão\n\033[%d;%dH\x1b[31m0-VOLTAR\x1b[37m\n",(23), (45),(24), (46),(25), (47),(26), (48));
+				scanf("%d",&escolhaUser);
+				if(escolhaUser == 1){
+					strcpy(corDefault,"\x1b[96m");
+					textoMenu();
+				}if(escolhaUser == 2){
+					strcpy(corDefault,"\x1b[92m");
+					textoMenu();
+				}if(escolhaUser == 3){
+					strcpy(corDefault,"\x1b[37m");
+					textoMenu();
+				}if(escolhaUser == 0){
+					textoMenu();
+				}
+				
+			}else{
 				textoMenu();
 			}
 			break;
 		case '4' :
+			posicionadorY = 5 ;
 			system("clear||cls");
 		printf("                                                                                \n");
-			printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
-			printf("                          _______                                                         \n");
-			printf("     ||||  ||||    |||    |-------| ||    ||                                      \n");
-			printf("     || |||| ||   || ||      |||    ||____||                                         \n");
-			printf("     ||  ||  ||  || _ ||     |||    ||----||                                          \n");
-			printf("     ||      || ||     ||    |_|    ||    ||                                         \n");
-			printf("                    ||||||     ||             ||||||                          \n");
-			printf("                    ||        ||||   |||  ||| ||                               \n");
-			printf("                    || ||||  ||__||  || ||||| ||||||                             \n");
-			printf("                    ||||||| ||    || ||    || ||                                \n");
-			printf("                                              ||||||                            \n");
-			printf("                                                                                \n");
-			printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n"); 
-		    printf("\n|      REGRAS DO JOGO: ENTÃO %s TUDO COMEÇA COM UMA  |", nomeUsuario);
-			printf("\n|  FORMA GEOMETRICA E DENTRO DELA TEMOS ALGUNS ESPEÇOS     |");
-			printf("\n|  VAZIOS E AO INICIAR O JOGO VOCê GANHA DOIS NUMEROS      |");
-			printf("\n|  2, 2 E AI COMEÇA JOGO, A REGRA É SEMPRE VOCÊ JUNTAR     |");
-			printf("\n|  SEMPRE DOIS NUMEROS IGUAIS AI OS DOIS SOMAM UM AO OUTRO |");
-			printf("\n|  NO CASO 2 +2 = 4, POREM VOCÊ JUNTA OS NUMEROS MOVENDO   |");
-			printf("\n|  A TELINHA COMS OS NUMEROS, SÃO QUATRO MOVIMENTOS        |");
-			printf("\n|  PARA CIMA, PARA BAIXO, PARA DIREITA E OU PARA ESQUERDA  |");
-			printf("\n|                                                          |");
-			printf("\n|                          ^                               |");
-			printf("\n|                          |                               |");
-			printf("\n|                    <____ | ____>                         |");
-			printf("\n|                          |                               |");
-			printf("\n|                          |                               |");
-			printf("\n|                          +                               |");
-			printf("\n|  E ASSIM JUNTANDO DE DOIS EM DOIS NUMEROS ATÉ 2048 E     |");
-			printf("\n|  ASSIM VOCÊ GANHA O JOGUINHO, LEGAL NÉ, VAMOS TENTAR?    |");
-			printf("\n|                                                          |");
-			printf("\n|__________________________________________________________|\n");
+			printf("\033[%d;%dH\x1b[31m--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==--=-=-\n",(5), (42));
+	printf("\033[%d;%dH*                          _______                            *\n",(1+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*     ||||  ||||    |||    |-------| ||    ||             -   *\n",(2+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*     || |||| ||   || ||      |||    ||____||           +     *\n",(3+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*\x1b[91m     ||  ||  ||  || _ ||     |||    ||----||            -    *\n",(4+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*     ||      || ||     ||    |_|    ||    ||           +     *\n",(5+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*\x1b[94m                    ||||||     ||             ||||||    -    *\n",(6+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*                    ||        ||||   |||  ||| ||       +     *\n",(7+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*                    || ||||  ||__||  || ||||| ||||||    -    *\n",(8+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*\x1b[32m 2+2=peixe\x1b[34m          ||||||| ||    || ||    || ||       _     *\n",(9+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*                                              ||||||    +    *\n",(10+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*                                                        +    *\n",(11+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\x1b[37m\n",(17), (42));
+		    printf("\033[%d;%dH|      REGRAS DO JOGO: ENTÃO %s TUDO COMEÇA COM UMA     	 |",(18), (42+posicionadorY), nomeUsuario);
+			printf("\033[%d;%dH|  FORMA GEOMETRICA E DENTRO DELA TEMOS ALGUNS ESPEÇOS     |",(19), (42+posicionadorY));
+			printf("\033[%d;%dH|  VAZIOS E AO INICIAR O JOGO VOCê GANHA DOIS NUMEROS      |",(20), (42+posicionadorY));
+			printf("\033[%d;%dH|  2, 2 E AI COMEÇA JOGO, A REGRA É SEMPRE VOCÊ JUNTAR     |",(21), (42+posicionadorY));
+			printf("\033[%d;%dH|  SEMPRE DOIS NUMEROS IGUAIS AI OS DOIS SOMAM UM AO OUTRO |",(22), (42+posicionadorY));
+			printf("\033[%d;%dH|  NO CASO 2 +2 = 4, POREM VOCÊ JUNTA OS NUMEROS MOVENDO   |",(23), (42+posicionadorY));
+			printf("\033[%d;%dH|  A TELINHA COMS OS NUMEROS, SÃO QUATRO MOVIMENTOS        |",(24), (42+posicionadorY));
+			printf("\033[%d;%dH|  PARA CIMA, PARA BAIXO, PARA DIREITA E OU PARA ESQUERDA  |",(25), (42+posicionadorY));
+			printf("\033[%d;%dH|                                                          |",(26), (42+posicionadorY));
+			printf("\033[%d;%dH|                          ^                               |",(28), (42+posicionadorY));
+			printf("\033[%d;%dH|                          |                               |",(29), (42+posicionadorY));
+			printf("\033[%d;%dH|                    <____ | ____>                         |",(30), (42+posicionadorY));
+			printf("\033[%d;%dH|                          |                               |",(31), (42+posicionadorY));
+			printf("\033[%d;%dH|                          |                               |",(32), (42+posicionadorY));
+			printf("\033[%d;%dH|                          +                               |",(33), (42+posicionadorY));
+			printf("\033[%d;%dH|  E ASSIM JUNTANDO DE DOIS EM DOIS NUMEROS ATÉ 2048 E     |",(34), (42+posicionadorY));
+			printf("\033[%d;%dH|  ASSIM VOCÊ GANHA O JOGUINHO, LEGAL NÉ, VAMOS TENTAR?    |",(35), (42+posicionadorY));
+			printf("\033[%d;%dH|                                                          |",(36), (42+posicionadorY));
+			printf("\033[%d;%dH|__________________________________________________________|\n",(37), (42+posicionadorY));
 			system("pause");
 			textoMenu();
 			
@@ -1428,33 +1852,34 @@ int main(int argc, char *argv[]) {
 		}
 	}
 			void textoLogin()
-	{
+	{	posicionador  = 5;
+		posicionadorY = 5;
 		system("clear||cls");
 		printf("                                                                                \n");
-	printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
-	printf("                          _______                                                         \n");
-	printf("     ||||  ||||    |||    |-------| ||    ||                                      \n");
-	printf("     || |||| ||   || ||      |||    ||____||                                         \n");
-	printf("     ||  ||  ||  || _ ||     |||    ||----||                                          \n");
-	printf("     ||      || ||     ||    |_|    ||    ||                                         \n");
-	printf("                    ||||||     ||             ||||||                          \n");
-	printf("                    ||        ||||   |||  ||| ||                               \n");
-	printf("                    || ||||  ||__||  || ||||| ||||||                             \n");
-	printf("                    ||||||| ||    || ||    || ||                                \n");
-	printf("                                              ||||||                            \n");
-	printf("                                                                                \n");
-	printf("--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n");
-	printf("Opcao escolhida: Login !                                 \n");
+	printf("\033[%d;%dH\x1b[31m--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==--=-=-\n",(5), (42));
+	printf("\033[%d;%dH*                          _______                            *\n",(1+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*     ||||  ||||    |||    |-------| ||    ||             -   *\n",(2+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*     || |||| ||   || ||      |||    ||____||           +     *\n",(3+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*\x1b[91m     ||  ||  ||  || _ ||     |||    ||----||            -    *\n",(4+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*     ||      || ||     ||    |_|    ||    ||           +     *\n",(5+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*\x1b[94m                    ||||||     ||             ||||||    -    *\n",(6+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*                    ||        ||||   |||  ||| ||       +     *\n",(7+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*                    || ||||  ||__||  || ||||| ||||||    -    *\n",(8+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*\x1b[32m 2+2=peixe\x1b[34m          ||||||| ||    || ||    || ||       _     *\n",(9+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*                                              ||||||    +    *\n",(10+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*                                                        +    *\n",(11+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\x1b[37m\n",(17), (42));
+	printf("\033[%d;%dHOpcao escolhida: \x1b[32mLogin !\x1b[37m                                 \n",(18), (45));
 	void fazerLogin(){
-		printf("=---=-=-==--=-=-==--=-=-=-=-=-==---=-=-==--=-=-==--=-=-=-=-=-=\n");
-		printf("|      Digite o numero do cadastro para selecionar:           |\n");
-		printf("=---=-=-==--=-=-==--=-=-=-=-=-==---=-=-==--=-=-==--=-=-=-=-=-=\n");
-		printf("|                   Player1:%s                                |\n",player1[0]);
-		printf("|                   Player2:%s                                |\n",player2[0]);
-		printf("|                   Player3:%s                                |\n",player3[0]);
-		printf("|                   Player4:%s                                |\n",player4[0]);
-		printf("|                   0 -Sair                                   |\n");
-		printf("=---=-=-==--=-=-==--=-=-=-=-=-==---=-=-==--=-=-==--=-=-=-=-=-==\n");
+		printf("\033[%d;%dH=---=-=-==--=-=-==--=-=-=-=-=-==---=-=-==--=-=-==--=-=-=-=-=-=\n",(19), (45));
+		printf("\033[%d;%dH|      Digite o \x1b[32mnumero\x1b[37m do cadastro para selecionar:           |\n",(20), (45));
+		printf("\033[%d;%dH=---=-=-==--=-=-==--=-=-=-=-=-==---=-=-==--=-=-==--=-=-=-=-=-=\n",(21), (45));
+		printf("\033[%d;%dH|                   \x1b[31mPlayer1:%s\x1b[37m                                |\n",(22), (45),player1[0]);
+		printf("\033[%d;%dH|                   \x1b[32mPlayer2:%s\x1b[37m                                |\n",(23), (45),player2[0]);
+		printf("\033[%d;%dH|                   \x1b[34mPlayer3:%s\x1b[37m                                |\n",(24), (45),player3[0]);
+		printf("\033[%d;%dH|                   \x1b[35mPlayer4:%s\x1b[37m                                |\n",(25), (45),player4[0]);
+		printf("\033[%d;%dH|                   0 -Sair                                   |\n",(26), (45));
+		printf("\033[%d;%dH=---=-=-==--=-=-==--=-=-=-=-=-==---=-=-==--=-=-==--=-=-=-=-=-==\n",(27), (45));
 		scanf("%i", & escolhaUser);
 		if(escolhaUser == 1){
 			system("cls");
@@ -1558,26 +1983,27 @@ int main(int argc, char *argv[]) {
 }
 	void textoCadastro()
 	{
-	
+		posicionador  = 5;
+		posicionadorY = 5;
 		system("clear||cls");
 		printf("                                                                                \n");
-	printf(" \033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n", (0), (40));
-	printf("\033[%d;%dH                          _______                                                         \n", (1), (40));
-	printf("\033[%d;%dH     ||||  ||||    |||    |-------| ||    ||                                      \n", (2), (40));
-	printf("\033[%d;%dH     || |||| ||   || ||      |||    ||____||                                         \n", (3), (40));
-	printf("\033[%d;%dH     ||  ||  ||  || _ ||     |||    ||----||                                          \n", (4), (40));
-	printf("\033[%d;%dH     ||      || ||     ||    |_|    ||    ||                                         \n", (5), (40));
-	printf("\033[%d;%dH                   ||||||     ||             ||||||                          \n", (6), (40));
-	printf("\033[%d;%dH                   ||        ||||   |||  ||| ||                               \n", (7), (40));
-	printf("\033[%d;%dH                   || ||||  ||__||  || ||||| ||||||                             \n", (8), (40));
-	printf("\033[%d;%dH                   ||||||| ||    || ||    || ||                                \n", (9), (40));
-	printf("\033[%d;%dH                                             ||||||                            \n", (10), (40));
-	printf("\033[%d;%dH                                                                              \n", (11), (40));
-	printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n", (12), (40));
-	printf("\033[%d;%dH                       Opcao escolhida: Cadastro!                                 \n", (13), (40));
-	printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n", (14), (40));
-	printf(" \033[%d;%dH                       pressione 0 para voltar                                    \n", (15), (40));
-	printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n", (16), (40));
+printf("\033[%d;%dH\x1b[31m--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==--=-=-\n",(5), (42));
+	printf("\033[%d;%dH*                          _______                            *\n",(1+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*     ||||  ||||    |||    |-------| ||    ||             -   *\n",(2+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*     || |||| ||   || ||      |||    ||____||           +     *\n",(3+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*\x1b[91m     ||  ||  ||  || _ ||     |||    ||----||            -    *\n",(4+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*     ||      || ||     ||    |_|    ||    ||           +     *\n",(5+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*\x1b[94m                    ||||||     ||             ||||||    -    *\n",(6+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*                    ||        ||||   |||  ||| ||       +     *\n",(7+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*                    || ||||  ||__||  || ||||| ||||||    -    *\n",(8+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*\x1b[32m 2+2=peixe\x1b[34m          ||||||| ||    || ||    || ||       _     *\n",(9+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*                                              ||||||    +    *\n",(10+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*                                                        +    *\n",(11+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\x1b[37m\n",(17), (40));
+	printf("\033[%d;%dH                       Opcao escolhida: \x1b[32mCadastro!\x1b[37m                                 \n", (18), (40));
+	printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n", (19), (40));
+	printf(" \033[%d;%dH                       pressione \x1b[31m0\x1b[37m para voltar                                    \n", (20), (40));
+	printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n", (21), (40));
 	void cadastraUsuario(){
 		if(strcmp(player1[0], "nome") != 0 &&   strcmp(player2[0], "nome") != 0 &&  strcmp(player3[0], "nome") != 0 &&  strcmp(player4[0], "nome") != 0  ){
 		printf("Todos os cadastros já estão preenchidos \n");
@@ -1732,7 +2158,7 @@ int main(int argc, char *argv[]) {
 		
 	char vazio[5] = "nome";
 	
-	printf("\033[%d;%dH                       Digite o seu nome de usuario: ",(17), (40));
+	printf("\033[%d;%dH                       Digite o seu nome de usuario: \x1b[32m",(22), (40));
 		if(strcmp(player1[0],vazio) == 0 ){
 			scanf("%s",&nomeUsuario);
 			if(strcmp(nomeUsuario, "0") == 0){
@@ -1740,8 +2166,8 @@ int main(int argc, char *argv[]) {
 			}
 			if(strcmp(nomeUsuario, player1[0]) == 0 ||strcmp(nomeUsuario, player2[0]) == 0 || strcmp(nomeUsuario, player3[0]) == 0 || strcmp(nomeUsuario, player4[0]) == 0  ){
 				
-				printf(" \033[%d;%dH                                  Nome já em Uso !                                                 \n", (20), (40));
-				printf(" \033[%d;%dH               para prosseguir informe um nome que não esteja em uso!                         \n", (21), (40) );
+				printf(" \033[%d;%dH\x1b[31m                                  Nome já em Uso !                                                 \n", (26), (40));
+				printf(" \033[%d;%dH               para prosseguir informe um nome que não esteja em uso!                         \n", (27), (40) );
 				
 				sleep(3);
 		
@@ -1752,12 +2178,12 @@ int main(int argc, char *argv[]) {
 			else {
 			
 			strcpy(player1[0],nomeUsuario);
-			printf("\033[%d;%dH                       Digite o seu email: ",(18), (40));
+			printf("\033[%d;%dH\x1b[37m                       Digite o seu email:\x1b[32m ",(23), (40));
 			scanf("%s", & emailUsuario);
 			strcpy(player1[1],emailUsuario);
-			printf("\033[%d;%dH                       Digite a sua senha: ",(19), (40));
+			printf("\033[%d;%dH\x1b[37m                       Digite a sua senha: \x1b[32m",(24), (40));
 			scanf("%s", & senhaUsuario);
-			printf("\033[%d;%dH                       Digite a sua cor favorita: ",(20), (40));
+			printf("\033[%d;%dH\x1b[37m                       Digite a sua cor favorita:\x1b[32m ",(25), (40));
 			scanf("%s", & codigoUsuario);
 			strcpy(player1[3],codigoUsuario);
 			strcpy(player1[2],senhaUsuario);
@@ -1769,8 +2195,8 @@ int main(int argc, char *argv[]) {
 				textoInicial();
 			}if(strcmp(nomeUsuario, player1[0]) == 0 ||strcmp(nomeUsuario, player2[0]) == 0 || strcmp(nomeUsuario, player3[0]) == 0 || strcmp(nomeUsuario, player4[0]) == 0  ){
 				
-				printf(" \033[%d;%dH                                  Nome já em Uso !                                                 \n", (20), (40));
-				printf(" \033[%d;%dH               para prosseguir informe um nome que não esteja em uso!                         \n", (21), (40) );
+				printf(" \033[%d;%dH\x1b[31m                                  Nome já em Uso !                                                 \n", (26), (40));
+				printf(" \033[%d;%dH               para prosseguir informe um nome que não esteja em uso!                         \n", (27), (40) );
 				
 				sleep(3);
 		
@@ -1781,12 +2207,12 @@ int main(int argc, char *argv[]) {
 			
 			
 			strcpy(player2[0],nomeUsuario);
-			printf("\033[%d;%dH                       Digite o seu email: ",(18), (40));
+			printf("\033[%d;%dH\x1b[37m                       Digite o seu email: \x1b[32m",(23), (40));
 			scanf("%s", & emailUsuario);
 			strcpy(player2[1],emailUsuario);
-			printf("\033[%d;%dH                       Digite a sua senha: ",(19), (40));
+			printf("\033[%d;%dH\x1b[37m                       Digite a sua senha: \x1b[32m",(24), (40));
 			scanf("%s", & senhaUsuario);
-			printf("\033[%d;%dH                       Digite a sua cor favorita: ",(20), (40));
+			printf("\033[%d;%dH\x1b[37m                       Digite a sua cor favorita: \x1b[32m",(25), (40));
 			scanf("%s", & codigoUsuario);
 			strcpy(player2[3],codigoUsuario);
 			strcpy(player2[2],senhaUsuario);
@@ -1799,8 +2225,8 @@ int main(int argc, char *argv[]) {
 			}
 			if(strcmp(nomeUsuario, player1[0]) == 0 ||strcmp(nomeUsuario, player2[0]) == 0 || strcmp(nomeUsuario, player3[0]) == 0 || strcmp(nomeUsuario, player4[0]) == 0  ){
 				
-				printf(" \033[%d;%dH                                  Nome já em Uso !                                                 \n", (20), (40));
-				printf(" \033[%d;%dH               para prosseguir informe um nome que não esteja em uso!                         \n", (21), (40) );
+				printf(" \033[%d;%dH\x1b[31m                                  Nome já em Uso !                                                 \n", (26), (40));
+				printf(" \033[%d;%dH               para prosseguir informe um nome que não esteja em uso!                         \n", (27), (40) );
 				
 				sleep(3);
 		
@@ -1810,12 +2236,12 @@ int main(int argc, char *argv[]) {
 			}else{
 			
 			strcpy(player3[0],nomeUsuario);
-			printf("\033[%d;%dH                       Digite o seu email: ",(18), (40));
+			printf("\033[%d;%dH\x1b[37m                       Digite o seu email:\x1b[32m ",(23), (40));
 			scanf("%s", & emailUsuario);
 			strcpy(player3[1],emailUsuario);
-			printf("\033[%d;%dH                       Digite a sua senha: ",(19), (40));
+			printf("\033[%d;%dH\x1b[37m                       Digite a sua senha:\x1b[32m ",(24), (40));
 			scanf("%s", & senhaUsuario);
-			printf(" \033[%d;%dH                       Digite a sua cor favorita: ",(20), (40));
+			printf(" \033[%d;%dH\x1b[37m                       Digite a sua cor favorita:\x1b[32m ",(25), (40));
 			scanf("%s", & codigoUsuario);
 			strcpy(player3[3],codigoUsuario);
 			strcpy(player3[2],senhaUsuario);
@@ -1828,8 +2254,8 @@ int main(int argc, char *argv[]) {
 			}
 			if(strcmp(nomeUsuario, player1[0]) == 0 ||strcmp(nomeUsuario, player2[0]) == 0 || strcmp(nomeUsuario, player3[0]) == 0 || strcmp(nomeUsuario, player4[0]) == 0  ){
 				
-				printf(" \033[%d;%dH                                  Nome já em Uso !                                                 \n", (20), (40));
-				printf(" \033[%d;%dH               para prosseguir informe um nome que não esteja em uso!                         \n", (21), (40) );
+				printf(" \033[%d;%dH\x1b[31m                                  Nome já em Uso !                                                 \n", (26), (40));
+				printf(" \033[%d;%dH               para prosseguir informe um nome que não esteja em uso!                         \n", (27), (40) );
 				
 				sleep(3);
 		
@@ -1839,12 +2265,12 @@ int main(int argc, char *argv[]) {
 			}else{
 			
 			strcpy(player4[0],nomeUsuario);
-			printf("\033[%d;%dH                       Digite o seu email: ",(18), (40));
+			printf("\033[%d;%dH\x1b[37m                       Digite o seu email:\x1b[32m ",(23), (40));
 			scanf("%s", & emailUsuario);
 			strcpy(player4[1],emailUsuario);
-			printf("\033[%d;%dH                       Digite a sua senha: ",(19), (40));
+			printf("\033[%d;%dH\x1b[37m                       Digite a sua senha:\x1b[32m ",(24), (40));
 			scanf("%s", & senhaUsuario);
-			printf(" \033[%d;%dH                       Digite a sua cor favorita: ",(20), (40));
+			printf(" \033[%d;%dH\x1b[37m                       Digite a sua cor favorita:\x1b[32m ",(25), (40));
 			scanf("%s", & codigoUsuario);
 			strcpy(player4[3],codigoUsuario);
 			strcpy(player4[2],senhaUsuario);
@@ -1855,37 +2281,38 @@ int main(int argc, char *argv[]) {
 	cadastraUsuario();
 	}
 		system("clear||cls");
-		printf(" _______________________________________________________________________________________________________________");
-	printf("\n|                                                                                                               |");
-	printf("\n|   m         ____________        ___________            _____             __________                           |");
-	printf("\n|   a        /____________|      /__________/|          /____/|           /_________/|                          |");
-	printf("\n|   t                    ||      |   ___    ||         /    | |           |   __    ||                          |");
-	printf("\n|   e         ___________||      |  |   |   ||        / /|  | |___        |  (__)   ||                          |");
-	printf("\n|   m        /___________|/      |  |   |   ||       / /_|  |/___/|        >       < |          16 + 16 = 32    |");
-	printf("\n|   a        | !                 |  |___|   ||      |___________|/        |   __    ||                          |");
-	printf("\n|   t        | !___________      |          ||           |  ||            |  (__)   ||                          |");
-	printf("\n|   i        |/___________/      |__________|/           |__|/            |_________|/                          |");
-	printf("\n|   c                                                                                                           |");
-	printf("\n|   a               soma !!!!                                                                                   |");
-	printf("\n|                                                               32 + 32 = 64                                    |");
-	printf("\n|   d         __   __    _____     __________                                            2 + 2 = 4              |");
-	printf("\n|   i        |  | |  |  |     |        |        |     |                                                         |");
-	printf("\n|   v        |  | |  |  |     |        |        |_____|                                                         |");
-	printf("\n|   e        |  |_|  |  |_____|        |        |     |                                           4 + 4 = 8     |");
-	printf("\n|   r        |       |  |     |        |        |     |                               8 + 8 = 16                |");
-	printf("\n|   t        |       |  |     |        |        |     |                                                         |");
-	printf("\n|   i                                                                                                           |");
-	printf("\n|   d                                   ________    _______    __  __      _____         _                      |");
-	printf("\n|   a            64 + 64 = 128         |            |     |   | |  | |    |             | |                     |");
-	printf("\n|                                      |    ____    |_____|   | |__| |    |__           | |                     |");
-	printf("\n|                                      |       |    |     |   |      |    |             |_|                     |");
-	printf("\n|                                      |_______|    |     |   |      |    |_____         ()                     |");
-	printf("\n|_______________________________________________________________________________________________________________|");
-	printf("-----------------------------------------------------------------------------------------------------------------\n");
-	printf("Se voce for novo no jogo, por favor realize o cadastro teclando  1 e pressionando enter \nse voce ja possui uma conta, tecle 2 e pressionando enter                                  \n");
-	printf("1 - cadastrar-se                                                                  \n");
-	printf("2 - entrar                                                                       \n");
-	printf("3 - recuperar senha                                                                                 \n");
+		posicionador = 4;
+		posicionadorY = -10;
+		printf("\033[%d;%dH\x1b[32m_______________________________________________________________________________________________________________",(1+posicionador),(40+posicionadorY));
+	printf("\033[%d;%dH|                                                                                                               |",(2+posicionador),(40+posicionadorY));
+	printf("\033[%d;%dH|   m         ____________        ___________            _____             __________                           |",(3+posicionador),(40+posicionadorY));
+	printf("\033[%d;%dH|   a        /____________|      /__________/|          /____/|           /_________/|                          |",(4+posicionador),(40+posicionadorY));
+	printf("\033[%d;%dH|   t                    ||      |   ___    ||         /    | |           |   __    ||                          |",(5+posicionador),(40+posicionadorY));
+	printf("\033[%d;%dH|   e         ___________||      |  |   |   ||        / /|  | |___        |  (__)   ||                          |",(6+posicionador),(40+posicionadorY));
+	printf("\033[%d;%dH|   m        /___________|/      |  |   |   ||       / /_|  |/___/|        >       < |          16 + 16 = 32    |",(7+posicionador),(40+posicionadorY));
+	printf("\033[%d;%dH|   a        | !                 |  |___|   ||      |___________|/        |   __    ||                          |",(8+posicionador),(40+posicionadorY));
+	printf("\033[%d;%dH|   t        | !___________      |          ||           |  ||            |  (__)   ||                          |",(9+posicionador),(40+posicionadorY));
+	printf("\033[%d;%dH|   i        |/___________/      |__________|/           |__|/            |_________|/                          |",(10+posicionador),(40+posicionadorY));
+	printf("\033[%d;%dH|   c                                                                                                           |",(11+posicionador),(40+posicionadorY));
+	printf("\033[%d;%dH|   a               soma !!!!                                                                                   |",(12+posicionador),(40+posicionadorY));
+	printf("\033[%d;%dH|\x1b[31m   d         __   __    _____     __________                                            2 + 2 = 4              |",(13+posicionador),(40+posicionadorY));
+	printf("\033[%d;%dH|   i        |  | |  |  |     |        |        |     |                                                         |",(14+posicionador),(40+posicionadorY));
+	printf("\033[%d;%dH|   v        |  | |  |  |     |        |        |_____|                                                         |",(15+posicionador),(40+posicionadorY));
+	printf("\033[%d;%dH|   e        |  |_|  |  |_____|        |        |     |                                           4 + 4 = 8     |",(16+posicionador),(40+posicionadorY));
+	printf("\033[%d;%dH|   r        |       |  |     |        |        |     |                               8 + 8 = 16                |",(17+posicionador),(40+posicionadorY));
+	printf("\033[%d;%dH|   t        |       |  |     |        |        |     |                                                         |",(18+posicionador),(40+posicionadorY));
+	printf("\033[%d;%dH|   i                                                                                                           |",(19+posicionador),(40+posicionadorY));
+	printf("\033[%d;%dH|\x1b[34m   d                                   ________    _______    __  __      _____         _                      |",(20+posicionador),(40+posicionadorY));
+	printf("\033[%d;%dH|   a            64 + 64 = 128         |            |     |   | |  | |    |             | |                     |",(21+posicionador),(40+posicionadorY));
+	printf("\033[%d;%dH|                                      |    ____    |_____|   | |__| |    |__           | |                     |",(22+posicionador),(40+posicionadorY));
+	printf("\033[%d;%dH|                                      |       |    |     |   |      |    |             |_|                     |",(23+posicionador),(40+posicionadorY));
+	printf("\033[%d;%dH|                                      |_______|    |     |   |      |    |_____         ()                     |",(24+posicionador),(40+posicionadorY));
+	printf("\033[%d;%dH|_______________________________________________________________________________________________________________|\x1b[37m",(25+posicionador),(40+posicionadorY));
+	printf("\033[%d;%dH-----------------------------------------------------------------------------------------------------------------\n",(26+posicionador),(40+posicionadorY));
+	printf("\033[%d;%dHSe voce for novo no jogo, por favor realize o cadastro teclando \x1b[32m 1\x1b[37m e pressionando enter \n\033[%d;%dHse voce ja possui uma conta, tecle \x1b[34m2\x1b[37m e pressionando enter                                  \n",(27+posicionador),(40+posicionadorY),(28+posicionador),(40+posicionadorY));
+	printf("\033[%d;%dH\x1b[32m1 - cadastrar-se                                                                  \x1b[37m\n",(29+posicionador),(40+posicionadorY));
+	printf("\033[%d;%dH\x1b[34m2 - entrar                                                                       \x1b[37m\n",(30+posicionador),(40+posicionadorY));
+	printf("\033[%d;%dH\x1b[31m3 - recuperar senha                                                                                 \x1b[37m\n",(31+posicionador),(40+posicionadorY));
 	scanf("%c",& respostaUserS );
 	
 	
