@@ -2061,16 +2061,16 @@ printf("\033[%d;%dH\x1b[31m--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-
 		scanf("%c", & respostaUserS);
 		switch(respostaUserS){
 			case '1':
-				printf("\033[%d;%dHSenha:\x1b[32m",(24),(85));
+				printf("\033[%d;%dHSenha:\x1b[32m",(24),(87));
 				scanf("%s", & senhaUsuario);
 				if(strcmp(senhaUsuario, player1[2]) == 0 ){
-					printf("\033[%d;%dH\x1b[31mDeletando Cadastro.",(24),(85));
+					printf("\033[%d;%dH\x1b[31mDeletando Cadastro.",(24),(87));
 					sleep(1);
-					printf("\033[%d;%dH\x1b[31mDeletando Cadastro..",(24),(85));
+					printf("\033[%d;%dH\x1b[31mDeletando Cadastro..",(24),(87));
 					sleep(1);
-					printf("\033[%d;%dH\x1b[31mDeletando Cadastro...",(24),(85));
+					printf("\033[%d;%dH\x1b[31mDeletando Cadastro...",(24),(87));
 					sleep(1);
-					printf("\033[%d;%dH\x1b[32mCadastro deletado com sucesso!",(24),(85));
+					printf("\033[%d;%dH\x1b[32mCadastro deletado com sucesso!",(24),(87));
 					sleep(1);
 					strcpy(player1[0],"nome");
 					strcpy(player1[1],"email");
@@ -2082,23 +2082,23 @@ printf("\033[%d;%dH\x1b[31m--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-
 					textoCadastro();
 					
 				}else{
-					printf("\x1b[31m\033[%d;%dHSenha invalida !",(24),(85));
+					printf("\x1b[31m\033[%d;%dHSenha invalida !",(24),(87));
 					sleep(2);
 					textoCadastro();
 				}
 				
 				break;
 			case '2':	
-				printf("\033[%d;%dHSenha:\x1b[32m",(25),(85));
+				printf("\033[%d;%dHSenha:\x1b[32m",(25),(87));
 				scanf("%s", & senhaUsuario);
 				if(strcmp(senhaUsuario, player2[2]) == 0 ){
-					printf("\033[%d;%dH\x1b[31mDeletando Cadastro.",(25),(85));
+					printf("\033[%d;%dH\x1b[31mDeletando Cadastro.",(25),(87));
 					sleep(1);
-					printf("\033[%d;%dH\x1b[31mDeletando Cadastro..",(25),(85));
+					printf("\033[%d;%dH\x1b[31mDeletando Cadastro..",(25),(87));
 					sleep(1);
-					printf("\033[%d;%dH\x1b[31mDeletando Cadastro...",(25),(85));
+					printf("\033[%d;%dH\x1b[31mDeletando Cadastro...",(25),(87));
 					sleep(1);
-					printf("\033[%d;%dH\x1b[32mCadastro deletado com sucesso!",(25),(85));
+					printf("\033[%d;%dH\x1b[32mCadastro deletado com sucesso!",(25),(87));
 					sleep(1);
 					strcpy(player2[0],"nome");
 					strcpy(player2[1],"email");
@@ -2110,23 +2110,23 @@ printf("\033[%d;%dH\x1b[31m--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-
 					textoCadastro();
 					
 				}else{
-					printf("\x1b[31m\033[%d;%dHSenha invalida !",(25),(85));
+					printf("\x1b[31m\033[%d;%dHSenha invalida !",(25),(87));
 					sleep(2);
 					textoCadastro();
 				}
 				break;
 				
 			case '3':
-				printf("\033[%d;%dHSenha:\x1b[32m",(26),(85));
+				printf("\033[%d;%dHSenha:\x1b[32m",(26),(87));
 				scanf("%s", & senhaUsuario);
 				if(strcmp(senhaUsuario, player3[2]) == 0 ){
-					printf("\033[%d;%dH\x1b[31mDeletando Cadastro.",(26),(85));
+					printf("\033[%d;%dH\x1b[31mDeletando Cadastro.",(26),(87));
 					sleep(1);
-					printf("\033[%d;%dH\x1b[31mDeletando Cadastro..",(26),(85));
+					printf("\033[%d;%dH\x1b[31mDeletando Cadastro..",(26),(87));
 					sleep(1);
-					printf("\033[%d;%dH\x1b[31mDeletando Cadastro...",(26),(85));
+					printf("\033[%d;%dH\x1b[31mDeletando Cadastro...",(26),(87));
 					sleep(1);
-					printf("\033[%d;%dH\x1b[32mCadastro deletado com sucesso!",(26),(85));
+					printf("\033[%d;%dH\x1b[32mCadastro deletado com sucesso!",(26),(87));
 					sleep(1);
 					strcpy(player3[0],"nome");
 					strcpy(player3[1],"email");
@@ -2138,23 +2138,23 @@ printf("\033[%d;%dH\x1b[31m--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-
 					textoCadastro();
 					
 				}else{
-					printf("\x1b[31m\033[%d;%dHSenha invalida !",(26),(85));
+					printf("\x1b[31m\033[%d;%dHSenha invalida !",(26),(87));
 					sleep(2);
 					textoCadastro();
 				}
 				break;
 			case '4' :
 				
-				printf("\033[%d;%dHSenha:\x1b[32m",(27),(85));
+				printf("\033[%d;%dHSenha:\x1b[32m",(27),(87));
 				scanf("%s", & senhaUsuario);
 				if(strcmp(senhaUsuario, player4[2]) == 0 ){
-					printf("\033[%d;%dH\x1b[31mDeletando Cadastro.",(27),(85));
+					printf("\033[%d;%dH\x1b[31mDeletando Cadastro.",(27),(87));
 					sleep(1);
-					printf("\033[%d;%dH\x1b[31mDeletando Cadastro..",(27),(85));
+					printf("\033[%d;%dH\x1b[31mDeletando Cadastro..",(27),(87));
 					sleep(1);
-					printf("\033[%d;%dH\x1b[31mDeletando Cadastro...",(27),(85));
+					printf("\033[%d;%dH\x1b[31mDeletando Cadastro...",(27),(87));
 					sleep(1);
-					printf("\033[%d;%dH\x1b[32mCadastro deletado com sucesso!",(27),(85));
+					printf("\033[%d;%dH\x1b[32mCadastro deletado com sucesso!",(27),(87));
 					sleep(1);
 					strcpy(player4[0],"nome");
 					strcpy(player4[1],"email");
@@ -2166,7 +2166,7 @@ printf("\033[%d;%dH\x1b[31m--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-
 					textoCadastro();
 					
 				}else{
-					printf("\x1b[31m\033[%d;%dHSenha invalida !",(27),(85));
+					printf("\x1b[31m\033[%d;%dHSenha invalida !",(27),(87));
 					sleep(2);
 					textoCadastro();
 				}
