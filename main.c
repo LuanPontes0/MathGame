@@ -5,6 +5,70 @@
 #define NUM_STRINGS 50
 #include<conio.h>
 #include <windows.h>
+void loading(int resp){
+	srand(time(NULL));
+	char corDefault1[50] = "\x1b[40m \x1b[37m";
+	char corDefaultC[50] = "\x1b[47m \x1b[37m";
+	char corBlue[50] = "\x1b[44m \x1b[34m";
+	char corGreen[50] = "\x1b[42m \x1b[32m";
+	char corRed[50] = "\x1b[41m \x1b[31m";
+	char corBlack[50] = "\x1b[30m";
+	char corPurple[50] = "\x1b[43m\x1b[33m";
+	char dicas[50][50] = {"Para ganhar o jogo, precisa pensar !", "Para começar um novo jogo, pressione R", "pense bem antes de cada jogada !", "Não se esqueça de se divertir !"};
+	int dicaR = rand()%4;
+	if(resp == 0 ){
+		system("cls");
+		printf("\033[%d;%dH %s                             %s",(20),(60),corDefaultC,corDefault1);
+	printf("%%0\n");
+	printf("\033[%d;%dHDICA: %s",(22),(60),dicas[dicaR]);
+	sleep(0,5);
+	system("cls");
+	printf("\033[%d;%dH %s      %s                      %s",(20),(60),corBlue,corDefaultC,corDefault1);
+	printf("%%25\n");
+	printf("\033[%d;%dHDICA: %s",(22),(60),dicas[dicaR]);
+	sleep(1); 
+	system("cls");
+	printf("\033[%d;%dH %s             %s               %s",(20),(60),corRed,corDefaultC,corDefault1);
+	printf("%%50\n");
+	printf("\033[%d;%dHDICA: %s",(22),(60),dicas[dicaR]);
+	sleep(0,5);
+	system("cls");
+	printf("\033[%d;%dH %s                      %s       %s",(20),(60),corPurple,corDefaultC,corDefault1);
+	printf("%%75\n");
+	printf("\033[%d;%dHDICA: %s",(22),(60),dicas[dicaR]);
+	sleep(1);
+	system("cls");
+	printf("\033[%d;%dH %s                             %s",(20),(60),corGreen,corDefault1);
+	printf("%%100\n");
+	printf("\033[%d;%dHDICA: %s",(22),(60),dicas[dicaR]);
+	}else if(resp == 1){
+		printf("\033[%d;%dH %s                             %s",(20),(60),corDefaultC,corDefault1);
+	printf("%%0\n");
+	printf("\033[%d;%dH		SALVANDO.",(22),(60));
+	sleep(0,5);
+	system("cls");
+	printf("\033[%d;%dH %s      %s                      %s",(20),(60),corBlue,corDefaultC,corDefault1);
+	printf("%%25\n");
+	printf("\033[%d;%dH		SALVANDO..",(22),(60));
+	sleep(1);
+	system("cls");
+	printf("\033[%d;%dH %s             %s               %s",(20),(60),corRed,corDefaultC,corDefault1);
+	printf("%%50\n");
+	printf("\033[%d;%dH		SALVANDO...",(22),(60));
+	sleep(0,5);
+	system("cls");
+	printf("\033[%d;%dH %s                      %s       %s",(20),(60),corPurple,corDefaultC,corDefault1);
+	printf("%%75\n");
+	printf("\033[%d;%dH		SALVANDO....",(22),(60));
+	sleep(1);
+	system("cls");
+	printf("\033[%d;%dH %s                             %s",(20),(60),corGreen,corDefault1);
+	printf("%%100\n");
+	printf("\033[%d;%dH	JOGO SALVADO COM SUCESSO!",(22),(60));
+	}
+	
+}
+
 void gotoxy(int x, int y)
 {
   COORD coord;
@@ -15,13 +79,14 @@ void gotoxy(int x, int y)
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main(int argc, char *argv[]) {
+	int playersRank[4] = {0,0,0,0};
 	char respostaUserAsci;
 	char corDefault[50] = "\x1b[37m";
 	int p,q; 
 	 int posicionador = 5 ;
 	 int posicionadorY = 5 ;
-	char nomes2[50][50] = {"nome","nome","nome","nome"};
-	int vetor2[4] = {0,0,0,0};
+	char nomes1[50][50] = {"nome","nome","nome","nome"};
+	int vetor1[4] = {0,0,0,0};
 	char playersNome[30][30]  = {""}; 	
 	
 	char respostaUserS;
@@ -51,11 +116,12 @@ int main(int argc, char *argv[]) {
 	
 	void textoInicial(){
 	
-		int playersRank[4] = {0,0,0,0};
+	
 		void textoMenu()
 	{
 		void textoJogo()
 	{
+		loading(0);
   
  	int coluna;
 	int linha;
@@ -84,10 +150,7 @@ int main(int argc, char *argv[]) {
 	void placar(){
 		
 		int i, j;
-		playersRank[0] = vetor2[0];
-		playersRank[1] = vetor2[1];
-		playersRank[2] = vetor2[2];
-		playersRank[3] = vetor2[3];
+	
 		if(strcmp(playerAtual[0],player1[0]) == 0 && score>=playersRank[0]){
 				playersRank[0] = score;
 		}if(strcmp(playerAtual[0],player2[0]) == 0 && score>=playersRank[1]){
@@ -98,10 +161,7 @@ int main(int argc, char *argv[]) {
 				playersRank[3] = score;
 		}
 		
-		strcpy(playersNome[0], player1[0]);
-		strcpy(playersNome[1], player2[0]);
-		strcpy(playersNome[2], player3[0]);
-		strcpy(playersNome[3], player4[0]);
+	
 		char nome1teste[50] ;
 		char nome2teste[50] ;
 		char nome3teste[50] ;
@@ -110,68 +170,32 @@ int main(int argc, char *argv[]) {
 		strcpy(nome2teste,player2[0]);
 		strcpy(nome3teste,player3[0]);
 		strcpy(nome4teste,player4[0]);
-	char nomes1[50][50] = {"luan", "pedro", "thiago", "gusta"} , a1[50],b1[50],c1[50],d1[50] ;
+	 
+	char a1[50],b1[50],c1[50],d1[50] ;
 	strcpy(nomes1[0], nome1teste);
 	strcpy(nomes1[1], nome2teste);
 	strcpy(nomes1[2], nome3teste);
 	strcpy(nomes1[3], nome4teste);
-	int vetor1[4] ={playersRank[0],playersRank[1],playersRank[2],playersRank[3]}, a = -1, b = -1 ,c = -1 ,d = -1;
-	vetor2[0] = 0 ;
-	vetor2[1] = 0 ;
-	vetor2[2] = 0 ;
-	vetor2[3] = 0 ;
-	strcpy(nomes2[0], a1);
-	strcpy(nomes2[1], b1);
-	strcpy(nomes2[2], c1);
-	strcpy(nomes2[3], d1);
-	for(i = 0 ; i<4; i++){
-
-		
-		if(vetor1[i] >= d ){
-			strcpy(d1, nomes1[i]);
-			d = vetor1[i];
-		}if(vetor1[i]>c){
-			d = 0 ; 
-			d = c ; 
-			c = vetor1[i];
-			strcpy(d1, c1);
-			strcpy(c1, nomes1[i]);
-		}if(vetor1[i]>b){
-			c = 0 ; 
-			c = b ; 
-			b = vetor1[i];
-			strcpy(c1, b1);
-			strcpy(b1, nomes1[i]);
-		}if(vetor1[i]>a){
+	vetor1[0] = playersRank[0];
+	vetor1[1] = playersRank[1];
+	vetor1[2] = playersRank[2];
+	vetor1[3] = playersRank[3];
+	int guarda = 0 ;
+	char nomeGuarda[50] ;
+	for(i = 0 ; i<4 ; i++){
+		for(j = 0 ; j<4; j++){
+		if(vetor1[i] < vetor1[j]){
+			guarda = vetor1[i];
+			vetor1[i] = vetor1[j];
+			strcpy(nomeGuarda,nomes1[i]);
+			strcpy(nomes1[i],nomes1[j]);
+			vetor1[j] = guarda;
+			strcpy(nomes1[j],nomeGuarda);
 			
-			if(strcmp(nomes1[i],a1) == 0){
-				
-			a = vetor1[i];
-			strcpy(a1, nomes1[i]);
-			
-			}else if(strcmp(b1,a1)!=0 &&  strcmp(nomes1[i],a1)!=0){
-			b = 0;
-			b = a ;
-			strcpy(b1, a1);
-			a = vetor1[i];
-			strcpy(a1, nomes1[i]);
-		}else if(strcmp(b1,a1)==0){
-			b = 0;
-			strcpy(b1, "nome");
-		a = vetor1[i];
-		strcpy(a1, nomes1[i]);
-	}
 		}
+		
+	}	
 	}
-	vetor2[0] = a ;
-	vetor2[1] = b ; 
-	vetor2[2] = c ;
-	vetor2[3] = d ;
-	strcpy(nomes2[0], a1);
-	strcpy(nomes2[1], b1);
-	strcpy(nomes2[2], c1);
-	strcpy(nomes2[3], d1);
-
 	
 	
 	
@@ -1644,8 +1668,10 @@ int main(int argc, char *argv[]) {
 	
 		if(achouN == 0){
 			placar();
-			printf("GAME OVER\n ");
-			system("pause");
+			printf("\x1b[47m\x1b[31m\033[%d;%dHDerrota, não foi desta vez!\x1b[37m\x1b[40m",(28),(59));
+			respostaUserAsci = getch();
+			respostaUserAsci = getch();
+			loading(1);
 			textoMenu();
 			mostrouGameOver = 1 ;
 			break ; 
@@ -1654,13 +1680,25 @@ int main(int argc, char *argv[]) {
 	}	
 		if(winGame == 1 ){
 			placar();
-			printf("Meus Parabéns, você conseguiu atingir o objetivo maximo !\n");
-			system("pause");
+			printf("\x1b[47m\x1b[34m\033[%d;%dHMeus Parabéns, você conseguiu atingir o objetivo maximo !\n\x1b[37m\x1b[40m",(28),(43));
+			respostaUserAsci = getch();
+			respostaUserAsci = getch();
+			loading(1);
 			textoMenu();
 			mostrouGameOver = 1 ;
 			break ; 
 		}
-	
+		
+		void perdeJogo(){
+			int i,j,x =1 ;
+			for(i = 0 ; i <4;i++){
+				for(j = 0 ; j <4;j++){
+					
+					matriz[i][j] = x ;
+					x++;
+				}
+			}
+		}
 
 	
 
@@ -1697,13 +1735,19 @@ int main(int argc, char *argv[]) {
 				placar();
 			    salvaJogo();
 				system("cls");
+				loading(1);
 				textoMenu();
 				mostrouGameOver = 1 ;
 				break;
 		case 114:
 				zeraMatriz();
 				break;
-				
+		case 33	:
+			matriz[0][0] = 2048;
+			break;	
+		case 43:
+			perdeJogo();
+			break;
 		
 			
 }			
@@ -1737,10 +1781,10 @@ int main(int argc, char *argv[]) {
 	printf("\033[%d;%dH                                                       Melhores jogadores       \n",(14+posicionador), (40));
 	printf("\033[%d;%dH                                                      NOME      PONTUACAO       \n",(15+posicionador), (40));
 	printf("\033[%d;%dH                                                    ||=====================||\n",(16+posicionador), (40));
-	printf("\033[%d;%dH                                                    ||%s        %i         ||",(17+posicionador), (40),nomes2[0],vetor2[0]);
-	printf("\033[%d;%dH                                                    ||%s        %i         ||\n",(18+posicionador), (40),nomes2[1],vetor2[1]);
-	printf("\033[%d;%dH\x1b[92m1 - Nova Partida \x1b[37m                                   ||%s        %i         ||\n",(19+posicionador), (40),nomes2[2],vetor2[2]);
-	printf("\033[%d;%dH\x1b[94m2 - Continuar Partida\x1b[37m                               ||%s        %i         ||\n",(20+posicionador), (40),nomes2[3],vetor2[3]);
+	printf("\033[%d;%dH                                                    ||1º %s        %i         ||",(17+posicionador), (40),nomes1[3],vetor1[3]);
+	printf("\033[%d;%dH                                                    ||2º %s        %i         ||\n",(18+posicionador), (40),nomes1[2],vetor1[2]);
+	printf("\033[%d;%dH\x1b[92m1 - Nova Partida \x1b[37m                                   ||3º %s        %i         ||\n",(19+posicionador), (40),nomes1[1],vetor1[1]);
+	printf("\033[%d;%dH\x1b[94m2 - Continuar Partida\x1b[37m                               ||4º %s        %i         ||\n",(20+posicionador), (40),nomes1[0],vetor1[0]);
 	printf("\033[%d;%dH\x1b[96m3 - Configuracoes   \x1b[37m                                ||=====================||\n",(21+posicionador), (40));
 	printf("\033[%d;%dH\x1b[93m4 - Ajuda\x1b[37m                                                                    \n",(22+posicionador), (40));
 	printf("\033[%d;%dH\x1b[91m5 - trocar de usuario\x1b[37m                                                        \n",(23+posicionador), (40));
@@ -1873,6 +1917,7 @@ int main(int argc, char *argv[]) {
 	printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\x1b[37m\n",(17), (42));
 	printf("\033[%d;%dHOpcao escolhida: \x1b[32mLogin !\x1b[37m                                 \n",(18), (45));
 	void fazerLogin(){
+		escolhaUser = 0 ;
 		printf("\033[%d;%dH=---=-=-==--=-=-==--=-=-=-=-=-==---=-=-==--=-=-==--=-=-=-=-=-=\n",(19), (45));
 		printf("\033[%d;%dH|      Digite o \x1b[32mnumero\x1b[37m do cadastro para selecionar:           |\n",(20), (45));
 		printf("\033[%d;%dH=---=-=-==--=-=-==--=-=-=-=-=-==---=-=-==--=-=-==--=-=-=-=-=-=\n",(21), (45));
@@ -1883,98 +1928,96 @@ int main(int argc, char *argv[]) {
 		printf("\033[%d;%dH|                   0 -Sair                                   |\n",(26), (45));
 		printf("\033[%d;%dH=---=-=-==--=-=-==--=-=-=-=-=-==---=-=-==--=-=-==--=-=-=-=-=-==\n",(27), (45));
 		scanf("%i", & escolhaUser);
+		system("cls");
+		printf("\033[%d;%dH\x1b[31m--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==--=-=-\n",(5), (42));
+	printf("\033[%d;%dH*                          _______                            *\n",(1+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*     ||||  ||||    |||    |-------| ||    ||             -   *\n",(2+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*     || |||| ||   || ||      |||    ||____||           +     *\n",(3+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*\x1b[91m     ||  ||  ||  || _ ||     |||    ||----||            -    *\n",(4+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*     ||      || ||     ||    |_|    ||    ||           +     *\n",(5+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*\x1b[94m                    ||||||     ||             ||||||    -    *\n",(6+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*                    ||        ||||   |||  ||| ||       +     *\n",(7+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*                    || ||||  ||__||  || ||||| ||||||    -    *\n",(8+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*\x1b[32m 2+2=peixe\x1b[34m          ||||||| ||    || ||    || ||       _     *\n",(9+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*                                              ||||||    +    *\n",(10+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH*                                                        +    *\n",(11+posicionador), (40+posicionadorY));
+	printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\x1b[37m\n",(17), (42));
 		if(escolhaUser == 1){
-			system("cls");
-			printf("Cadastro selecionado: Player 1: %s\n", player1[0]);
-			printf("Digite a senha:");
+			
+				
+	printf("\033[%d;%dHCadastro selecionado:\x1b[31m Player 1: %s\x1b[37m\n",(18), (55),player1[0]);
+			printf("\033[%d;%dHDigite a senha:\x1b[32m",(19),(55));
 			scanf("%s",senhaUsuario);
 			if(strcmp(senhaUsuario,player1[2])==0){
 				strcpy(playerAtual[0],player1[0]);
-				sleep(3);
-				system("cls");
-				printf("Carregando.");
+				
+				printf("\033[%d;%dHSenha Correta, acessando Menu principal.",(20),(55));
 				sleep(1);
-				system("cls");
-				printf("Carregando..");
-				sleep(1);
-				system("cls");
-				printf("Carregando...");
-				sleep(1);
+				printf("\033[%d;%dHSenha Correta, acessando Menu principal..",(20),(55));
+				sleep(0,5);
+				printf("\033[%d;%dHSenha Correta, acessando Menu principal...",(20),(55));
+				sleep(0,5);
+			
 		}else{
-				printf("Senha invalida");
-				sleep(3);
-				system("cls");
-				fazerLogin();
+				printf("\033[%d;%dH\x1b[31mSenha invalida",(20),(55));
+			sleep(3);
+			system("cls");
+			textoLogin();
 		}
 		}else if(escolhaUser == 2){
-			system("cls");
-			printf("Cadastro selecionado: Player 2: %s\n", player2[0]);
-			printf("Digite a senha:");
+			printf("\033[%d;%dHCadastro selecionado:\x1b[32m Player 2: %s\x1b[37m\n",(18), (55),player2[0]);
+			printf("\033[%d;%dHDigite a senha:\x1b[32m",(19),(55));
 			scanf("%s",senhaUsuario);
 			if(strcmp(senhaUsuario,player2[2])==0){
 				strcpy(playerAtual[0],player2[0]);
-				sleep(3);
-				system("cls");
-				printf("Carregando.");
+				printf("\033[%d;%dHSenha Correta, acessando Menu principal.",(20),(55));
 				sleep(1);
-				system("cls");
-				printf("Carregando..");
-				sleep(1);
-				system("cls");
-				printf("Carregando...");
-				sleep(1);
+				printf("\033[%d;%dHSenha Correta, acessando Menu principal..",(20),(55));
+				sleep(0,5);
+				printf("\033[%d;%dHSenha Correta, acessando Menu principal...",(20),(55));
+				sleep(0,5);
 		}else{
-			printf("Senha invalida");
+			printf("\033[%d;%dH\x1b[31mSenha invalida",(20),(55));
 			sleep(3);
 			system("cls");
-			fazerLogin();
+			textoLogin();
 		}
 		}else if(escolhaUser == 3){
-			system("cls");
-			printf("Cadastro selecionado: Player 3: %s\n", player3[0]);
-			printf("Digite a senha:");
+			printf("\033[%d;%dHCadastro selecionado:\x1b[34m Player 3: %s\x1b[37m\n",(18), (55),player3[0]);
+			printf("\033[%d;%dHDigite a senha:\x1b[32m",(19),(55));
 			scanf("%s",senhaUsuario);
 			if(strcmp(senhaUsuario,player3[2])==0){
 				strcpy(playerAtual[0],player3[0]);
-				sleep(3);
-				system("cls");
-				printf("Carregando.");
+				printf("\033[%d;%dHSenha Correta, acessando Menu principal.",(20),(55));
 				sleep(1);
-				system("cls");
-				printf("Carregando..");
-				sleep(1);
-				system("cls");
-				printf("Carregando...");
-				sleep(1);
+				printf("\033[%d;%dHSenha Correta, acessando Menu principal..",(20),(55));
+				sleep(0,5);
+				printf("\033[%d;%dHSenha Correta, acessando Menu principal...",(20),(55));
+				sleep(0,5);
 		}else{
-			printf("Senha invalida");
+			printf("\033[%d;%dH\x1b[31mSenha invalida",(20),(55));
 			sleep(3);
 			system("cls");
-			fazerLogin();
+			textoLogin();
 			
 		}
 		}else if(escolhaUser == 4){
-			system("cls");
-			printf("Cadastro selecionado: Player 4: %s\n", player4[0]);
-			printf("Digite a senha:");
+			printf("\033[%d;%dHCadastro selecionado:\x1b[35m Player 4: %s\x1b[37m\n",(18), (55),player4[0]);
+			printf("\033[%d;%dHDigite a senha:\x1b[32m",(19),(55));
 			scanf("%s",senhaUsuario);
 			if(strcmp(senhaUsuario,player4[2])==0){
 				strcpy(playerAtual[0],player4[0]);
-				sleep(3);
-				system("cls");
-				printf("Carregando.");
+				printf("\033[%d;%dHSenha Correta, acessando Menu principal.",(20),(55));
 				sleep(1);
-				system("cls");
-				printf("Carregando..");
-				sleep(1);
-				system("cls");
-				printf("Carregando...");
-				sleep(1);
+				printf("\033[%d;%dHSenha Correta, acessando Menu principal..",(20),(55));
+				sleep(0,5);
+				printf("\033[%d;%dHSenha Correta, acessando Menu principal...",(20),(55));
+				sleep(0,5);
 		}else{
-			printf("Senha invalida");
+			printf("\033[%d;%dH\x1b[31mSenha invalida",(20),(55));
 			sleep(3);
 			system("cls");
-			fazerLogin();
+			textoLogin();
 		}
 		}
 		else if (escolhaUser == 0 ){
@@ -2008,32 +2051,27 @@ printf("\033[%d;%dH\x1b[31m--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-
 	printf("\033[%d;%dH--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=====--\n", (21), (40));
 	void cadastraUsuario(){
 		if(strcmp(player1[0], "nome") != 0 &&   strcmp(player2[0], "nome") != 0 &&  strcmp(player3[0], "nome") != 0 &&  strcmp(player4[0], "nome") != 0  ){
-		printf("Todos os cadastros já estão preenchidos \n");
-		printf("Selecione um que deseja deletar e insira a senha do mesmo para concluir a ação \n");
-		printf("Player 1 : %s\n", player1[0]);
-		printf("Player 2 : %s\n", player2[0]);
-		printf("Player 3 : %s\n", player3[0]);
-		printf("Player 4 : %s\n", player4[0]);
-		printf("Sair - 0 : %s\n");
+		printf("\033[%d;%dHTodos os cadastros já estão preenchidos \n",(22),(58));
+		printf("\033[%d;%dHSelecione um que deseja deletar e insira a senha do mesmo para concluir a ação \n",(23),(40));
+		printf("\033[%d;%dH\x1b[31mPlayer 1 : %s\x1b[37m\n",(24),(70),player1[0]);
+		printf("\033[%d;%dH\x1b[32mPlayer 2 : %s\x1b[37m\n",(25),(70), player2[0]);
+		printf("\033[%d;%dH\x1b[34mPlayer 3 : %s\x1b[37m\n",(26),(70),player3[0]);
+		printf("\033[%d;%dH\x1b[35mPlayer 4 : %s\x1b[37m\n",(27),(70), player4[0]);
+		printf("\033[%d;%dH\x1b[31mSair - 0 : \x1b[37m\n",(28),(70));
 		scanf("%c", & respostaUserS);
 		switch(respostaUserS){
 			case '1':
-				printf("Player 1 selecionado ! ");
-				printf("Insira por favor a senha do cadastro! ");
+				printf("\033[%d;%dHSenha:\x1b[32m",(24),(85));
 				scanf("%s", & senhaUsuario);
 				if(strcmp(senhaUsuario, player1[2]) == 0 ){
+					printf("\033[%d;%dH\x1b[31mDeletando Cadastro.",(24),(85));
 					sleep(1);
-					system("cls");
-					printf("Deletando Cadastro.");
+					printf("\033[%d;%dH\x1b[31mDeletando Cadastro..",(24),(85));
 					sleep(1);
-					system("cls");
-					printf("Deletando Cadastro..");
+					printf("\033[%d;%dH\x1b[31mDeletando Cadastro...",(24),(85));
 					sleep(1);
-					system("cls");
-					printf("Deletando Cadastro...");
+					printf("\033[%d;%dH\x1b[32mCadastro deletado com sucesso!",(24),(85));
 					sleep(1);
-					system("cls");
-					printf("Cadastro deletado com sucesso!");
 					strcpy(player1[0],"nome");
 					strcpy(player1[1],"email");
 					strcpy(player1[2],"senha");
@@ -2044,29 +2082,24 @@ printf("\033[%d;%dH\x1b[31m--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-
 					textoCadastro();
 					
 				}else{
-					printf("Senha invalida !");
+					printf("\x1b[31m\033[%d;%dHSenha invalida !",(24),(85));
 					sleep(2);
 					textoCadastro();
 				}
 				
 				break;
 			case '2':	
-				printf("Player 2 selecionado ! ");
-				printf("Insira por favor a senha do cadastro! ");
+				printf("\033[%d;%dHSenha:\x1b[32m",(25),(85));
 				scanf("%s", & senhaUsuario);
 				if(strcmp(senhaUsuario, player2[2]) == 0 ){
+					printf("\033[%d;%dH\x1b[31mDeletando Cadastro.",(25),(85));
 					sleep(1);
-					system("cls");
-					printf("Deletando Cadastro.");
+					printf("\033[%d;%dH\x1b[31mDeletando Cadastro..",(25),(85));
 					sleep(1);
-					system("cls");
-					printf("Deletando Cadastro..");
+					printf("\033[%d;%dH\x1b[31mDeletando Cadastro...",(25),(85));
 					sleep(1);
-					system("cls");
-					printf("Deletando Cadastro...");
+					printf("\033[%d;%dH\x1b[32mCadastro deletado com sucesso!",(25),(85));
 					sleep(1);
-					system("cls");
-					printf("Cadastro deletado com sucesso!");
 					strcpy(player2[0],"nome");
 					strcpy(player2[1],"email");
 					strcpy(player2[2],"senha");
@@ -2077,29 +2110,24 @@ printf("\033[%d;%dH\x1b[31m--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-
 					textoCadastro();
 					
 				}else{
-					printf("Senha invalida !");
+					printf("\x1b[31m\033[%d;%dHSenha invalida !",(25),(85));
 					sleep(2);
 					textoCadastro();
 				}
 				break;
 				
 			case '3':
-				printf("Player 3 selecionado ! ");
-				printf("Insira por favor a senha do cadastro! ");
+				printf("\033[%d;%dHSenha:\x1b[32m",(26),(85));
 				scanf("%s", & senhaUsuario);
 				if(strcmp(senhaUsuario, player3[2]) == 0 ){
+					printf("\033[%d;%dH\x1b[31mDeletando Cadastro.",(26),(85));
 					sleep(1);
-					system("cls");
-					printf("Deletando Cadastro.");
+					printf("\033[%d;%dH\x1b[31mDeletando Cadastro..",(26),(85));
 					sleep(1);
-					system("cls");
-					printf("Deletando Cadastro..");
+					printf("\033[%d;%dH\x1b[31mDeletando Cadastro...",(26),(85));
 					sleep(1);
-					system("cls");
-					printf("Deletando Cadastro...");
+					printf("\033[%d;%dH\x1b[32mCadastro deletado com sucesso!",(26),(85));
 					sleep(1);
-					system("cls");
-					printf("Cadastro deletado com sucesso!");
 					strcpy(player3[0],"nome");
 					strcpy(player3[1],"email");
 					strcpy(player3[2],"senha");
@@ -2110,29 +2138,24 @@ printf("\033[%d;%dH\x1b[31m--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-
 					textoCadastro();
 					
 				}else{
-					printf("Senha invalida !");
+					printf("\x1b[31m\033[%d;%dHSenha invalida !",(26),(85));
 					sleep(2);
 					textoCadastro();
 				}
 				break;
 			case '4' :
 				
-				printf("Player 4 selecionado ! ");
-				printf("Insira por favor a senha do cadastro! ");
+				printf("\033[%d;%dHSenha:\x1b[32m",(27),(85));
 				scanf("%s", & senhaUsuario);
 				if(strcmp(senhaUsuario, player4[2]) == 0 ){
+					printf("\033[%d;%dH\x1b[31mDeletando Cadastro.",(27),(85));
 					sleep(1);
-					system("cls");
-					printf("Deletando Cadastro.");
+					printf("\033[%d;%dH\x1b[31mDeletando Cadastro..",(27),(85));
 					sleep(1);
-					system("cls");
-					printf("Deletando Cadastro..");
+					printf("\033[%d;%dH\x1b[31mDeletando Cadastro...",(27),(85));
 					sleep(1);
-					system("cls");
-					printf("Deletando Cadastro...");
+					printf("\033[%d;%dH\x1b[32mCadastro deletado com sucesso!",(27),(85));
 					sleep(1);
-					system("cls");
-					printf("Cadastro deletado com sucesso!");
 					strcpy(player4[0],"nome");
 					strcpy(player4[1],"email");
 					strcpy(player4[2],"senha");
@@ -2143,7 +2166,7 @@ printf("\033[%d;%dH\x1b[31m--=-==-=--=-==-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-
 					textoCadastro();
 					
 				}else{
-					printf("Senha invalida !");
+					printf("\x1b[31m\033[%d;%dHSenha invalida !",(27),(85));
 					sleep(2);
 					textoCadastro();
 				}
